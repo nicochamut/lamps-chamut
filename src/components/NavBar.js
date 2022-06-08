@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import CartWidget from "./CartWidget"
 
 const NavBar = () => {
     return(
@@ -11,6 +12,8 @@ const NavBar = () => {
             <li><a href="/#">Gallery</a></li>
             <li><a href="/#">Contact</a></li>
         </Clickables>
+        
+<CartWidget />
 
     </NavBarStyled>
     )
