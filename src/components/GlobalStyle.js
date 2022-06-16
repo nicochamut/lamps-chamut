@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    background:#ffffff;
+    background:#181818;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     color: white;
@@ -23,6 +23,6 @@ body {
     
 }
 
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;
