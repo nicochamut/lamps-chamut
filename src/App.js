@@ -10,13 +10,13 @@ function App() {
   const stock2 = 6;
   const stock3 = 10;
 
-  const [counterCart, setCounterCart] = useState(0);
+  const [countWidget, setCountWidget] = useState(0);
 
   return (
     <div className="App">
       <GlobalStyle />
       <header className="App-header">
-        <NavBar counterCart={counterCart} />
+        <NavBar countWidget={countWidget} />
       </header>
       <AppBody>
         <AppItemsList>
@@ -26,6 +26,8 @@ function App() {
             paragraph="Item Height: 144.5 cm |
             Material: Wood"
             stock={stock1}
+            setCountWidget={setCountWidget}
+            countWidget={countWidget}
           />
           <ItemListContainer
             title="Lamp 2"
@@ -33,6 +35,8 @@ function App() {
             paragraph="Item Height: 144.5 cm |
             Material: Wood"
             stock={stock2}
+            setCountWidget={setCountWidget}
+            countWidget={countWidget}
           />
           <ItemListContainer
             title="Lamp 3"
@@ -40,6 +44,8 @@ function App() {
             paragraph="Item Height: 144.5 cm |
             Material: Wood"
             stock={stock3}
+            setCountWidget={setCountWidget}
+            countWidget={countWidget}
           />
         </AppItemsList>
       </AppBody>

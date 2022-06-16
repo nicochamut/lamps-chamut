@@ -2,25 +2,30 @@ import styled from "styled-components";
 import { useState } from "react";
 import ItemCount from "./ItemCount";
 
-const ItemListContainer = ({ title, img, paragraph, stock }) => {
+const ItemListContainer = ({ title, img, paragraph, stock, countWidget, setCountWidget }) => {
+
   const initial = 1;
   const [count, setCount] = useState(0);
 
-  const onAdd = (items) => {
-    setCount(items + items);
-    console.log(count);
+
+  const onAdd = (prop) => {
+
+    setCount(count + prop)
+    setCountWidget(count)
+
+   
+
   };
 
   return (
     <ListStyled>
       <CartStyled>
-        <img src={img} />
+        <img src={img} alt="img"/>
         <div className="details">
           <h2>{title}</h2>
           <h5>{paragraph}</h5>
         </div>
         <ItemCount
-          count={count}
           initial={initial}
           stock={stock}
           onAdd={onAdd}

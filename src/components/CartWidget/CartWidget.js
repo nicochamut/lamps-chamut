@@ -2,11 +2,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
-const CartWidget = ({ counterCart }) => {
+const CartWidget = ({ countWidget }) => {
   return (
     <CartStyled>
       <FontAwesomeIcon icon={faCartShopping} />
-      <p>{counterCart}</p>
+      <p>{countWidget}</p>
     </CartStyled>
   );
 };

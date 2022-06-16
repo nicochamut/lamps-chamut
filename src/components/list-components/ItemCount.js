@@ -2,34 +2,34 @@ import styled from "styled-components";
 import { useState } from "react";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
-  const [cartCounter, setCounterCart] = useState(1);
+  const [cartNumber, setNumberCart] = useState(initial);
 
   const addCounter = () => {
-    if (cartCounter >= initial && cartCounter <= stock) {
-      setCounterCart(cartCounter + 1);
+    if (cartNumber >= initial && cartNumber <= stock) {
+      setNumberCart(cartNumber + 1);
     }
   };
 
   const removeCounter = () => {
-    if (cartCounter <= initial) {
+    if (cartNumber <= initial) {
       return;
     } else {
-      setCounterCart(cartCounter - 1);
+      setNumberCart(cartNumber - 1);
     }
-    setCounterCart(cartCounter - 1);
+    setNumberCart(cartNumber - 1);
   };
 
-  console.log(cartCounter);
+
   return (
     <CountStyled>
       <Counter>
-        <button onClick={() => removeCounter()}>-</button>
-        <p>{cartCounter}</p>
-        <button onClick={() => addCounter()}>+</button>
+        <button className="button-add" onClick={() => removeCounter()}>-</button>
+        <p>{cartNumber}</p>
+        <button className="button-remove" onClick={() => addCounter()}>+</button>
       </Counter>
       <button
         onClick={() => {
-          onAdd(cartCounter);
+          onAdd(cartNumber);
         }}
       >
         Agregar al carrito
