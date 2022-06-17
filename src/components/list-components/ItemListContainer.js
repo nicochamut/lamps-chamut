@@ -12,9 +12,6 @@ const ItemListContainer = ({ title, img, paragraph, stock, countWidget, setCount
 
     setCount(count + prop)
     setCountWidget(count)
-
-   
-
   };
 
   return (
@@ -24,6 +21,7 @@ const ItemListContainer = ({ title, img, paragraph, stock, countWidget, setCount
         <div className="details">
           <h2>{title}</h2>
           <h5>{paragraph}</h5>
+          <p>stock available: {stock + 1}</p>
         </div>
         <ItemCount
           initial={initial}
@@ -62,6 +60,7 @@ const CartStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 5px;
     h2 {
       text-align: center;
       border-bottom: 1px solid #acacac;

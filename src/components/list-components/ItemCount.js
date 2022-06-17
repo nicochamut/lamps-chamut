@@ -31,6 +31,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
         onClick={() => {
           onAdd(cartNumber);
         }}
+        className="cart-button"
       >
         Agregar al carrito
       </button>
@@ -49,6 +50,11 @@ const CountStyled = styled.div`
   padding: 1.8rem;
   border-radius: 5px;
   border: 1px solid #4e4e4e;
+  .cart-button{
+    padding: 5px;
+    height: 2rem;
+    width: 8rem;
+  }
   button {
     margin: 3px;
     height: 20px;
