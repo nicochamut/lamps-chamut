@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CartWidget from "./CartWidget";
+import CartWidget from "./CardComponents/CartWidget";
 
 const NavBar = ({ counterCart }) => {
   console.log(counterCart);

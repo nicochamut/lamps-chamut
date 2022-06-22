@@ -1,9 +1,10 @@
 import GlobalStyle from "./components/GlobalStyle";
-import ItemListContainer from "./components/list-components/ItemListContainer";
+import ItemListContainer from "./components/CardComponents/ItemListContainer";
 import NavBar from "./components/NavBar";
 import lamp1 from "./imgs/lamp1.jpg";
 import styled from "styled-components";
 import { useState } from "react";
+import CardComponent from "./components/CardComponents/CardComponent";
 
 function App() {
   const stock1 = 3;
@@ -20,27 +21,7 @@ function App() {
       </header>
       <AppBody>
         <AppItemsList>
-          <ItemListContainer
-            title="Lamp 1"
-            img={lamp1}
-            paragraph="Item Height: 144.5 cm |
-            Material: Wood"
-            stock={stock1}
-          />
-          <ItemListContainer
-            title="Lamp 2"
-            img={lamp1}
-            paragraph="Item Height: 144.5 cm |
-            Material: Wood"
-            stock={stock2}
-          />
-          <ItemListContainer
-            title="Lamp 3"
-            img={lamp1}
-            paragraph="Item Height: 144.5 cm |
-            Material: Wood"
-            stock={stock3}
-          />
+          <CardComponent />
         </AppItemsList>
       </AppBody>
     </div>

@@ -1,30 +1,38 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
 
 const ItemListContainer = ({ title, img, paragraph, stock }) => {
-  const initial = 1;
-  const [count, setCount] = useState(0);
+  // const initial = 1;
+  // const [count, setCount] = useState(0);
 
-  const onAdd = (items) => {
-    setCount(items + items);
-    console.log(count);
-  };
+  // const onAdd = (items) => {
+  //   setCount(items + items);
+  //   console.log(count);
+  // };
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.github.com/users")
+      .then((response) => response.json())
+      .then((json) => setUsers(json));
+  }, []);
 
   return (
     <ListStyled>
       <CartStyled>
-        <img src={img} />
-        <div className="details">
-          <h2>{title}</h2>
-          <h5>{paragraph}</h5>
-        </div>
-        <ItemCount
-          count={count}
-          initial={initial}
-          stock={stock}
-          onAdd={onAdd}
-        />
+        <ItemList data={users} />
+
+        {/* {
+          <ItemCount
+            count={count}
+            initial={initial}
+            stock={stock}
+            // onAdd={onAdd}
+          />
+        } */}
       </CartStyled>
     </ListStyled>
   );
