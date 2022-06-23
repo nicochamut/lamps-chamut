@@ -1,25 +1,20 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-const ItemCount = ({ initial, stock, onAdd }) => {
+const ItemCount = ({ stock, onAdd }) => {
   const [cartCounter, setCounterCart] = useState(1);
-
+  const initial = 1;
   const addCounter = () => {
-    if (cartCounter >= initial && cartCounter <= stock) {
-      setCounterCart(cartCounter + 1);
-    }
+    if (cartCounter < stock) setCounterCart(cartCounter + 1);
   };
 
   const removeCounter = () => {
-    if (cartCounter <= initial) {
-      return;
-    } else {
+    if (cartCounter >= initial) {
       setCounterCart(cartCounter - 1);
+    } else {
     }
-    setCounterCart(cartCounter - 1);
   };
 
-  console.log(cartCounter);
   return (
     <CountStyled>
       <Counter>
@@ -27,13 +22,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
         <p>{cartCounter}</p>
         <button onClick={() => addCounter()}>+</button>
       </Counter>
-      <button
-        onClick={() => {
-          onAdd(cartCounter);
-        }}
-      >
-        Agregar al carrito
-      </button>
+      <button>Agregar al carrito</button>
     </CountStyled>
   );
 };
@@ -44,20 +33,21 @@ const CountStyled = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 2rem;
+  height: 5rem;
   width: 15rem;
   padding: 1.8rem;
   border-radius: 5px;
   border: 1px solid #4e4e4e;
   button {
     margin: 3px;
+    margin-top: 5px;
     height: 20px;
-    width: 7rem;
+    width: 10rem;
     background: #343434;
     padding: 4px;
     color: white;
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     &:hover {
       background: #616161;
     }
