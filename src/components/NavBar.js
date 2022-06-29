@@ -1,24 +1,29 @@
+//Style
 import styled from "styled-components";
+//Components
 import CartWidget from "../components/CartWidget/CartWidget";
+import Categories from "./Categories/Categories";
+//Router
+import { Link } from "react-router-dom";
 
 const NavBar = ({ counterCart }) => {
   return (
     <NavBarStyled>
-      <h3>LAMPS</h3>
+      <Link className="brand" to="/">
+        <h3>Lumière</h3>
+      </Link>
+      <Categories />
 
       <Clickables>
-        <li>
-          <a href="/#">Home</a>
-        </li>
-        <li>
-          <a href="/#">About</a>
-        </li>
-        <li>
-          <a href="/#">Gallery</a>
-        </li>
-        <li>
-          <a href="/#">Contact</a>
-        </li>
+        <Link className="links" to="/">
+          Home
+        </Link>
+        <Link className="links" to="/about">
+          About
+        </Link>
+        <Link className="links" to="/contact">
+          Contact
+        </Link>
       </Clickables>
 
       <CartWidget counterCart={counterCart} />
@@ -33,6 +38,11 @@ const NavBarStyled = styled.div`
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 2px 5px #1b1b1b;
+  .brand {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+  }
   h3 {
     margin-left: 2rem;
     font-size: 2rem;
@@ -44,15 +54,13 @@ const Clickables = styled.ul`
   display: flex;
   justify-content: space-around;
 
-  li {
+  .links {
     margin-right: 8rem;
     list-style: none;
-    a {
-      text-decoration: none;
-      color: white;
-      &:hover {
-        color: #19bfbf;
-      }
+    text-decoration: none;
+    color: white;
+    &:hover {
+      color: #19bfbf;
     }
   }
 `;

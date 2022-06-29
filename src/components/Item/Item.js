@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 
 const Item = ({ prop }) => {
   return (
     <StyledItem>
       <h1>{prop.title}</h1>
-      <img src={prop.imageUrl} />
+      <Link to={`item/${prop.id}`}>
+        <img src={prop.imageUrl} />
+      </Link>
       <p>{prop.features}</p>
       <h3>${prop.price}</h3>
       <ItemCount stock={prop.stock} />

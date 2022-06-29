@@ -1,37 +1,44 @@
+//STYLE
 import GlobalStyle from "./components/GlobalStyle";
-import NavBar from "./components/NavBar";
 import styled from "styled-components";
-import CardComponent from "./components/CardComponents/CardComponent";
+
+// COMPONENTS
+
+import NavBar from "./components/NavBar";
+
+// Router
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// PAGES
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import DetailSection from "./pages/DetailSection/DetailSection";
 
 function App() {
   return (
-    <div className="App">
-      <GlobalStyle />
-      <header className="App-header">
-        <NavBar />
-      </header>
-      <AppBody>
-        <AppItemsList>
-          <CardComponent />
-        </AppItemsList>
-      </AppBody>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <GlobalStyle />
+        <header className="App-header">
+          <NavBar />
+        </header>
+        <AppS>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/item/:id" element={<DetailSection />} />
+          </Routes>
+        </AppS>
+      </div>
+    </BrowserRouter>
   );
 }
 
-const AppBody = styled.div`
-  margin: 5rem;
-
-  grid-template-rows: 25rem 3fr;
-  border: 1px solid black;
-`;
-
-const AppItemsList = styled.div`
-  display: flex;
-  justify-content: space-around;
+const AppS = styled.div`
   border: 1px solid #989895;
   border-radius: 10px;
-  width: 100%;
 `;
 
 export default App;

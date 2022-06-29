@@ -17,10 +17,8 @@ html {
 body {
     background:#181818;
     font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
     color: white;
-   
-    
+    border: 1px solid black;
 }
 
 `;
