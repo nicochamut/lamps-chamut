@@ -81,6 +81,7 @@ const listaProductos = [
 ];
 const deskLamps = listaProductos.filter((x) => x.category === "desk lamps");
 const floorLamps = listaProductos.filter((x) => x.category === "floor lamps");
+
 export const getProductsByCategory = (prop) => {
   return new Promise((resolve, reject) => {
     if (prop === "desk-lamps") {
