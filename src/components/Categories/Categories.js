@@ -1,10 +1,10 @@
 //style
-import { useState } from "react";
+
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Categories = () => {
-  const [typeLamp, setTypeLamp] = useState();
+
 
   return (
     <Category>

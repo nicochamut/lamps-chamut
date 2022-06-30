@@ -15,7 +15,7 @@ const NavBar = ({ counterCart }) => {
       <Categories />
 
       <Clickables>
-        <Link className="links" to="/category">
+        <Link className="links" to="/category/all">
           Home
         </Link>
         <Link className="links" to="/about">

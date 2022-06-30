@@ -5,11 +5,18 @@ import { useParams } from "react-router-dom";
 //style
 import styled from "styled-components";
 
-const CardDetail = ({ prop }) => {
+// Components
+import ItemCount from "../ItemCount/ItemCount";
+
+const CardDetail = ({count}) => {
   const [card, setCard] = useState([]);
 
   let { id } = useParams();
 
+  const onAdd = () => {
+count(count + 1)
+  }
+ 
 
   useEffect(() => {
     getProductById(id).then((res) => setCard(res));
@@ -17,10 +24,11 @@ const CardDetail = ({ prop }) => {
   return (
     <Card>
       <h1>{card.title}</h1>
-       <img src={card.imageUrl}></img> 
+       <img src={card.imageUrl} alt={card.title}></img> 
       <Features>
         <h3>{card.features}</h3>
       </Features>
+      <ItemCount stock={card.stock}  />
     </Card>
   );
 };

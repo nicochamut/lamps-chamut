@@ -7,7 +7,7 @@ const Item = ({ prop }) => {
     <StyledItem>
       <h1>{prop.title}</h1>
       <Link to={`item/${prop.id}`}>
-        <img src={prop.imageUrl} />
+        <img src={prop.imageUrl} alt={prop.title} />
       </Link>
       <p>{prop.features}</p>
       <h3>${prop.price}</h3>
