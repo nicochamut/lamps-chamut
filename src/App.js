@@ -26,10 +26,10 @@ function App() {
         </header>
         <AppS>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/category/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/item/:id" element={<DetailSection />} />
+            <Route path="category/:id/item/:id" element={<DetailSection />} />
             <Route path="/category/:id" element={<Category />} />
           </Routes>
         </AppS>

@@ -9,7 +9,7 @@ const CardDetail = ({ prop }) => {
   const [card, setCard] = useState([]);
 
   let { id } = useParams();
-  console.log(id);
+
 
   useEffect(() => {
     getProductById(id).then((res) => setCard(res));
@@ -17,7 +17,7 @@ const CardDetail = ({ prop }) => {
   return (
     <Card>
       <h1>{card.title}</h1>
-      <img src={card.imageUrl}></img>
+       <img src={card.imageUrl}></img> 
       <Features>
         <h3>{card.features}</h3>
       </Features>

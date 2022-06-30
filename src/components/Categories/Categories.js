@@ -10,7 +10,7 @@ const Categories = () => {
     <Category>
       <h4>
         categories:
-        <Link to="/"> all </Link> |
+        <Link to="/category/all"> all </Link> |
         <Link to="/category/desk-lamps"> desk lamps</Link> |
         <Link to="/category/floor-lamps"> floor lamps </Link>
       </h4>
