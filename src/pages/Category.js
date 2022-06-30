@@ -2,6 +2,7 @@ import {useParams} from "react-router"
 import { useState, useEffect } from "react"
 import { getProductsByCategory } from "../components/State/asyncMock"
 import Item from "../components/Item/Item"
+import { ItemListStyled } from "../style"
 
 
 const Category = () => {
@@ -17,7 +18,7 @@ getProductsByCategory(id).then((res) => {
 })
 }, [id])
 
-    return(<div>{data.map((x) => <Item prop={x} />)}</div>)
+    return(<ItemListStyled>{data.map((x) => <Item prop={x} />)}</ItemListStyled>)
 }
 
 export default Category 

@@ -21,6 +21,7 @@ body {
     border: 1px solid black;
 }
 
+
 `;
 
 export default GlobalStyle;
