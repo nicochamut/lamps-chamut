@@ -6,9 +6,12 @@ import { useParams } from "react-router-dom";
 const DetailSection = ({setCounterCart , counterCart}) => {
   const [count, setCount] = useState(counterCart)
 
-  useEffect(() => {
-setCounterCart(count + 1)
+ const addToCounter = () => {
+  setCounterCart(counterCart + count)
+ }
 
+   useEffect(() => {
+    addToCounter()
   }, [count])
   return (
     <div>

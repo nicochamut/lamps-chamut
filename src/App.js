@@ -32,7 +32,7 @@ function App() {
         </header>
         <AppS>
           <Routes>
-            <Route path="/category/all" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="category/:id/item/:id" element={<DetailSection setCounterCart={setCounterCart} counterCart={counterCart} />} />

@@ -6,7 +6,7 @@ const Item = ({ prop }) => {
   return (
     <StyledItem>
       <h1>{prop.title}</h1>
-      <Link to={`item/${prop.id}`}>
+      <Link to={`/category/:id/item/${prop.id}`}>
         <img src={prop.imageUrl} alt={prop.title} />
       </Link>
       <p>{prop.features}</p>

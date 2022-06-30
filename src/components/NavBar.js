@@ -9,13 +9,13 @@ import { Link } from "react-router-dom";
 const NavBar = ({ counterCart }) => {
   return (
     <NavBarStyled>
-      <Link className="brand" to="/category/all">
+      <Link className="brand" to="/">
         <h3>Lumière</h3>
       </Link>
       <Categories />
 
       <Clickables>
-        <Link className="links" to="/category/all">
+        <Link className="links" to="/">
           Home
         </Link>
         <Link className="links" to="/about">

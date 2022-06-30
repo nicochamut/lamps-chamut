@@ -15,7 +15,7 @@ const CardDetail = ({setCount, counterCart}) => {
   let { id } = useParams();
 
   const onAdd = () => {
-    setCount(card + 1)
+    setCount(productsCount + 1)
   }
   console.log(counterCart)
  
