@@ -8,14 +8,16 @@ import styled from "styled-components";
 // Components
 import ItemCount from "../ItemCount/ItemCount";
 
-const CardDetail = ({count}) => {
-  const [card, setCard] = useState([]);
+const CardDetail = ({setCount, counterCart}) => {
+  const [card, setCard] = useState(counterCart);
+  const [productsCount, setProductsCount] = useState(0) 
 
   let { id } = useParams();
 
   const onAdd = () => {
-count(count + 1)
+    setCount(card + 1)
   }
+  console.log(counterCart)
  
 
   useEffect(() => {
@@ -28,7 +30,7 @@ count(count + 1)
       <Features>
         <h3>{card.features}</h3>
       </Features>
-      <ItemCount stock={card.stock}  />
+      <ItemCount stock={card.stock} onAdd={onAdd} />
     </Card>
   );
 };

@@ -3,10 +3,17 @@ import { useState, useEffect } from "react";
 import { getProductById, getProducts } from "../../components/State/asyncMock";
 import { useParams } from "react-router-dom";
 
-const DetailSection = ({count}) => {
+const DetailSection = ({setCounterCart , counterCart}) => {
+  const [count, setCount] = useState(counterCart)
+
+  useEffect(() => {
+setCounterCart(count + 1)
+
+  }, [count])
   return (
     <div>
-      <CardDetail count={count} />
+      <CardDetail setCount={setCount} counterCart={counterCart} />
+      
     </div>
   );
 };

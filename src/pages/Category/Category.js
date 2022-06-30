@@ -1,8 +1,8 @@
 import {useParams} from "react-router"
 import { useState, useEffect } from "react"
-import { getProductsByCategory } from "../components/State/asyncMock"
-import Item from "../components/Item/Item"
-import { ItemListStyled } from "../style"
+import { getProductsByCategory } from "../../components/State/asyncMock"
+import Item from "../../components/Item/Item"
+import { ItemListStyled } from "../../style"
 
 
 const Category = () => {

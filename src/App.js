@@ -11,15 +11,16 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // PAGES
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
 import DetailSection from "./pages/DetailSection/DetailSection";
-import Category from "./pages/Category";
+import Category from "./pages/Category/Category";
 
 function App() {
 
-  const [cartCount, setCartCount] = useState(0)
+  const [counterCart, setCounterCart] = useState(0)
+
 
 
   return (
@@ -27,14 +28,14 @@ function App() {
       <div className="App">
         <GlobalStyle />
         <header className="App-header">
-          <NavBar />
+          <NavBar counterCart={counterCart} />
         </header>
         <AppS>
           <Routes>
             <Route path="/category/all" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="category/:id/item/:id" element={<DetailSection count={cartCount} />} />
+            <Route path="category/:id/item/:id" element={<DetailSection setCounterCart={setCounterCart} counterCart={counterCart} />} />
             <Route path="/category/:id" element={<Category  />} />
           </Routes>
         </AppS>

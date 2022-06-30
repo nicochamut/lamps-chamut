@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const NavBar = ({ counterCart }) => {
   return (
     <NavBarStyled>
-      <Link className="brand" to="/">
+      <Link className="brand" to="/category/all">
         <h3>Lumière</h3>
       </Link>
       <Categories />

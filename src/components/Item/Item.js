@@ -11,7 +11,7 @@ const Item = ({ prop }) => {
       </Link>
       <p>{prop.features}</p>
       <h3>${prop.price}</h3>
-      <ItemCount stock={prop.stock} />
+    
     </StyledItem>
   );
 };
