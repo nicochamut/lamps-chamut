@@ -18,7 +18,7 @@ getProductsByCategory(id).then((res) => {
 })
 }, [id])
 
-    return(<ItemListStyled>{data.map((x) => <Item prop={x} />)}</ItemListStyled>)
+    return(<ItemListStyled>{data.map((x) => <Item prop={x} key={x.title} />)}</ItemListStyled>)
 }
 
 export default Category 

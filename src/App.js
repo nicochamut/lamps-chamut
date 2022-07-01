@@ -16,11 +16,11 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import DetailSection from "./pages/DetailSection/DetailSection";
 import Category from "./pages/Category/Category";
+import Cart from "./pages/Cart/Cart";
 
 function App() {
 
   const [counterCart, setCounterCart] = useState(0)
-
 
 
   return (
@@ -37,6 +37,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="category/:id/item/:id" element={<DetailSection setCounterCart={setCounterCart} counterCart={counterCart} />} />
             <Route path="/category/:id" element={<Category  />} />
+            <Route path="/cart" element={<Cart  />} />
           </Routes>
         </AppS>
       </div>
@@ -45,8 +46,7 @@ function App() {
 }
 
 const AppS = styled.div`
-  border: 1px solid #989895;
-  border-radius: 10px;
+
 `;
 
 export default App;

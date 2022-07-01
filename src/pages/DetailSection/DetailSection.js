@@ -6,19 +6,20 @@ import { useParams } from "react-router-dom";
 const DetailSection = ({setCounterCart , counterCart}) => {
   const [count, setCount] = useState(counterCart)
 
- const addToCounter = () => {
-  setCounterCart(counterCart + count)
- }
+//  const addToCounter = (num) => {
+//   setCounterCart(counterCart + count)
+//  }
 
    useEffect(() => {
-    addToCounter()
+
   }, [count])
   return (
     <div>
-      <CardDetail setCount={setCount} counterCart={counterCart} />
-      
+      <CardDetail setCounterCart={setCounterCart} counterCart={counterCart}/>
     </div>
   );
 };
 
 export default DetailSection;
+
+// addToCounter={addToCounter} counterCart={counterCart} 

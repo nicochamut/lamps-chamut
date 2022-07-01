@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 
 const ItemCount = ({ stock, onAdd }) => {
-  const [cartCounter, setCounterCart] = useState(1);
+  const [cartCounter, setCounterCart] = useState(0);
   const initial = 1;
   const addCounter = () => {
     if (cartCounter < stock) setCounterCart(cartCounter + 1);
@@ -22,7 +22,7 @@ const ItemCount = ({ stock, onAdd }) => {
         <p>{cartCounter}</p>
         <button onClick={() => addCounter()}>+</button>
       </Counter>
-      <button onClick={() => {onAdd()}}>Agregar al carrito</button>
+      <button onClick={() => {onAdd(cartCounter)}}>Agregar al carrito</button>
     </CountStyled>
   );
 };
@@ -38,6 +38,7 @@ const CountStyled = styled.div`
   padding: 1.8rem;
   border-radius: 5px;
   border: 1px solid #4e4e4e;
+  margin-bottom: 2rem ;
   button {
     margin: 3px;
     margin-top: 5px;

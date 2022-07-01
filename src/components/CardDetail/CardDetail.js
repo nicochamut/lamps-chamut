@@ -7,22 +7,29 @@ import styled from "styled-components";
 
 // Components
 import ItemCount from "../ItemCount/ItemCount";
+import PurchaseButton from "../PurchaseButton/PurchaseButton";
 
-const CardDetail = ({setCount, counterCart}) => {
-  const [card, setCard] = useState(counterCart);
-  const [productsCount, setProductsCount] = useState(0) 
+const CardDetail = ({addToCounter, counterCart, setCounterCart}) => {
+  const [card, setCard] = useState([]);
+  const [itemVisibility, setItemVisibility] = useState(true)
 
   let { id } = useParams();
 
-  const onAdd = () => {
-    setCount(productsCount + 1)
+  const onAdd = (num) => {
+    if(num === 0){
+      return
+    } else {   
+      setCounterCart(counterCart + num)
+       setItemVisibility(false)}
+
+   
   }
   console.log(counterCart)
  
 
   useEffect(() => {
     getProductById(id).then((res) => setCard(res));
-  });
+  },[]);
   return (
     <Card>
       <h1>{card.title}</h1>
@@ -30,7 +37,7 @@ const CardDetail = ({setCount, counterCart}) => {
       <Features>
         <h3>{card.features}</h3>
       </Features>
-      <ItemCount stock={card.stock} onAdd={onAdd} />
+      { itemVisibility ? <ItemCount stock={card.stock} onAdd={onAdd} setCounterCart={setCounterCart} counterCart={counterCart} /> : <PurchaseButton />}
     </Card>
   );
 };
