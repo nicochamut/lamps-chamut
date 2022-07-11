@@ -1,7 +1,7 @@
 const listaProductos = [
   {
     id: 1,
-    title: "lamp 1",
+    title: "D28 Lamp",
     color: "brown",
     imageUrl:
       "https://i.pinimg.com/564x/41/b0/85/41b085ffe96a6ac4c0653bcc82ed9427.jpg",
@@ -15,7 +15,7 @@ const listaProductos = [
 
   {
     id: 2,
-    title: "lamp 2",
+    title: "F55 Lamp",
     color: "brown",
     price: 36,
     imageUrl:
@@ -28,7 +28,7 @@ const listaProductos = [
   },
   {
     id: 3,
-    title: "lamp 3",
+    title: "D01 Lamp",
     color: "brown",
     price: 36,
     imageUrl:
@@ -41,7 +41,7 @@ const listaProductos = [
   },
   {
     id: 4,
-    title: "lamp 4",
+    title: "F22 Lamp",
     color: "brown",
     price: 36,
     imageUrl:
@@ -54,7 +54,7 @@ const listaProductos = [
   },
   {
     id: 5,
-    title: "lamp 5",
+    title: "F03 Lamp",
     color: "brown",
     price: 36,
     imageUrl:
@@ -67,7 +67,7 @@ const listaProductos = [
   },
   {
     id: 6,
-    title: "lamp 6",
+    title: "D25 Lamp",
     color: "brown",
     imageUrl:
       "https://i.pinimg.com/564x/b5/3c/d9/b53cd9f84714191c53385770b7c622b9.jpg",

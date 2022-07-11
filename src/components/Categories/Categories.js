@@ -4,12 +4,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Categories = () => {
-
-
   return (
     <Category>
       <h4>
-        categories:
         <Link to="/category/all"> all </Link> |
         <Link to="/category/desk-lamps"> desk lamps</Link> |
         <Link to="/category/floor-lamps"> floor lamps </Link>
@@ -27,8 +24,12 @@ const Category = styled.div`
     cursor: pointer;
     list-style: none;
     text-decoration: none;
-    color: #d6f7fe;
+    color: #000000;
     font-size: 1rem;
+    font-weight: 100;
+    &:hover {
+      color: #e58b0d;
+    }
   }
 `;
 

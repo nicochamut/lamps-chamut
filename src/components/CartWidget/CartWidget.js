@@ -1,13 +1,27 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+//context
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext/CartContext";
 
 const CartWidget = ({ counterCart }) => {
+  const [products, setProducts, clearCart] = useContext(CartContext);
   return (
-    <CartStyled>
-      <FontAwesomeIcon icon={faCartShopping} />
-      <p>{counterCart}</p>
-    </CartStyled>
+    <Link to={"/cart"}>
+      <CartStyled>
+        <FontAwesomeIcon icon={faCartShopping} />
+        <p>{counterCart}</p>
+        <button
+          onClick={() => {
+            clearCart();
+          }}
+        >
+          clear
+        </button>
+      </CartStyled>
+    </Link>
   );
 };
 
@@ -17,6 +31,9 @@ const CartStyled = styled.div`
   text-align: center;
   align-items: center;
   margin-right: 30px;
+  list-style: none;
+  text-decoration: none;
+  color: black;
   cursor: pointer;
   p {
     color: white;

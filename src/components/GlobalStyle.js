@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    background:#181818;
+    background:#ffffff;
     font-family: 'Inter', sans-serif;
     color: white;
 

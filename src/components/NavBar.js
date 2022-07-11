@@ -6,7 +6,13 @@ import Categories from "./Categories/Categories";
 //Router
 import { Link } from "react-router-dom";
 
+//context
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext/CartContext";
+
 const NavBar = ({ counterCart }) => {
+  const [clearCart] = useContext(CartContext);
+
   return (
     <NavBarStyled>
       <Link className="brand" to="/">
@@ -33,34 +39,38 @@ const NavBar = ({ counterCart }) => {
 
 const NavBarStyled = styled.div`
   height: 3rem;
-  background: #333;
+  background: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 1px 2px 5px #1b1b1b;
-  .brand {
-    list-style: none;
-    text-decoration: none;
-    color: white;
-  }
+  border: 1px solid black;
+  color: black;
+  list-style: none;
+  text-decoration: none;
+
   h3 {
     margin-left: 2rem;
     font-size: 2rem;
     font-family: "Noto Serif", serif;
+  }
+  .brand {
+    list-style: none;
+    text-decoration: none;
+    color: black;
   }
 `;
 
 const Clickables = styled.ul`
   display: flex;
   justify-content: space-around;
-
+  font-size: 1.5rem;
   .links {
     margin-right: 8rem;
     list-style: none;
     text-decoration: none;
-    color: white;
+    font-family: "Montserrat", sans-serif;
     &:hover {
-      color: #19bfbf;
+      color: #e58b0d;
     }
   }
 `;
