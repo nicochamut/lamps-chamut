@@ -42,7 +42,7 @@ const CountStyled = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 5rem;
+  height: 6rem;
   width: 15rem;
   padding: 1.8rem;
   border-radius: 5px;
@@ -59,8 +59,10 @@ const CountStyled = styled.div`
     color: #000000;
     border: 1px solid black;
     border-radius: 5px;
+    transition: all 0.3s ease-out;
     &:hover {
-      background: #616161;
+      background: #444444;
+      color: white;
     }
   }
   div {
@@ -72,16 +74,20 @@ const Counter = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 7rem;
-  height: 1.6rem;
+  height: 2.3rem;
   border-radius: 5px;
   text-align: center;
   border: 1px solid grey;
 
   button {
     width: 2rem;
+    height: 1.4rem;
     background: none;
     border: none;
     color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

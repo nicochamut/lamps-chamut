@@ -26,7 +26,7 @@ const StyledItem = styled.div`
   align-items: center;
   background: #ffffff;
   text-align: center;
-  padding: 2px;
+  padding: 10px;
   margin: 5rem;
   width: 24rem;
   height: 42rem;

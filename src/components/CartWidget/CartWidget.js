@@ -9,19 +9,19 @@ import { CartContext } from "../../context/CartContext/CartContext";
 const CartWidget = ({ counterCart }) => {
   const [products, setProducts, clearCart] = useContext(CartContext);
   return (
-    <Link to={"/cart"}>
       <CartStyled>
-        <FontAwesomeIcon icon={faCartShopping} />
+           <Link to={"/cart"} className="cart-counter">
+        <FontAwesomeIcon icon={faCartShopping} className="icon"/>
         <p>{counterCart}</p>
+        </Link>
         <button
           onClick={() => {
             clearCart();
           }}
         >
-          clear
+          clear cart
         </button>
       </CartStyled>
-    </Link>
   );
 };
 
@@ -30,18 +30,54 @@ const CartStyled = styled.div`
   justify-content: center;
   text-align: center;
   align-items: center;
-  margin-right: 30px;
+  margin-right: 10px;
   list-style: none;
   text-decoration: none;
   color: black;
+  .cart-counter{
+    display: flex;
+  justify-content: center;
+  text-align: center;
+  
+
+  }
   cursor: pointer;
   p {
     color: white;
     font-size: 1.2rem;
     margin: 3px;
-    background: #5f5f5f;
+    background: #333333;
     border-radius: 50%;
-    width: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+  }
+  button{
+    width: 6rem;
+    border-radius: 0.7rem;
+    margin: 0.1rem;
+    text-decoration: none;
+    list-style: none;
+    border:  1px solid black;
+    height: 2.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      color: white;
+      background: red;
+    }
+  }
+  .icon{
+    height: 2rem;
+    align-self: center;
+    transition: all 0.3s ease-out;
+    color: black;
+    &:hover{
+      height: 2.4rem;
+    }
   }
 `;
 

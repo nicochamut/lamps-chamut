@@ -17,8 +17,8 @@ const Categories = () => {
 
 const Category = styled.div`
   position: absolute;
-  top: 1rem;
-  left: 18rem;
+  top: 1.3rem;
+  left: 17rem;
 
   a {
     cursor: pointer;

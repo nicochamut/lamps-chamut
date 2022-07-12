@@ -34,10 +34,7 @@ export const CtxProvider = ({ children }) => {
     setProductsCart(productsCart.filter((i) => i.id !== id));
   };
 
-  // const addItem = (item, quantity) => {
-  //     let carga = {...item, quantity: quantity}
-  //     setCarr(carr.concat(carga))
-  // }
+ 
 
   return (
     <CartContext.Provider

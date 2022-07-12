@@ -19,7 +19,6 @@ const NavBar = ({ counterCart }) => {
         <h3>Lumière</h3>
       </Link>
       <Categories />
-
       <Clickables>
         <Link className="links" to="/">
           Home
@@ -31,14 +30,13 @@ const NavBar = ({ counterCart }) => {
           Contact
         </Link>
       </Clickables>
-
       <CartWidget counterCart={counterCart} />
     </NavBarStyled>
   );
 };
 
 const NavBarStyled = styled.div`
-  height: 3rem;
+  height: 3.5rem;
   background: #fff;
   display: flex;
   justify-content: space-between;
