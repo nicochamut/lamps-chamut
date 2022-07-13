@@ -1,20 +1,4 @@
-import { useState, useEffect } from "react";
-
-//STATE
-import { getProductById } from "../State/asyncMock";
-
-//ID ROUTE
-import { useParams } from "react-router-dom";
-
-// firebase
-import { db } from "../../firestore/firestoreConfig";
-import {
-  collection,
-  query,
-  getDocs,
-  documentId,
-  where,
-} from "firebase/firestore";
+import { useState } from "react";
 
 //CONTEXT
 import { useContext } from "react";
@@ -30,8 +14,6 @@ import PurchaseButton from "../PurchaseButton/PurchaseButton";
 const CardDetail = ({ props }) => {
   const [itemVisibility, setItemVisibility] = useState(true);
 
-  console.log(props);
-  //CONTEXT
   const [
     productsCart,
     addCart,
@@ -42,8 +24,6 @@ const CardDetail = ({ props }) => {
     setCounterCart,
   ] = useContext(CartContext);
 
-  let { id } = useParams();
-
   const onAdd = (num) => {
     if (num === 0) {
       return;
@@ -53,21 +33,6 @@ const CardDetail = ({ props }) => {
       addCart({ ...props }, num);
     }
   };
-
-  // useEffect(() => {
-  //   const getP = async () => {
-  //     const q = query(collection(db, "lamps"), where(documentId(), "==", id));
-  //     const querySnapshot = await getDocs(q);
-  //     const docs = [];
-  //     querySnapshot.forEach((doc) => {
-  //       docs.push({ ...doc.data(), id: doc.id });
-  //       console.log(docs[0]);
-  //     });
-
-  //     setCard(docs);
-  //   };
-  //   getP();
-  // }, []);
 
   return (
     <DetailStyle>
