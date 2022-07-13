@@ -11,9 +11,9 @@ const Home = () => {
 };
 
 const HomeS = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 `;
 
 export default Home;

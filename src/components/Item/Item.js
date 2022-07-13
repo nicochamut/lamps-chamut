@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Item = ({ prop }) => {
+  console.log(prop);
   return (
     <StyledItem>
       <h1>{prop.title}</h1>

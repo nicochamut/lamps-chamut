@@ -8,7 +8,7 @@ export const ItemListStyled = styled.div`
   border: 1px solid black;
   align-items: center;
   margin-top: 3rem;
-
+  color: black;
   .link-items {
     background: red;
     width: 0rem;

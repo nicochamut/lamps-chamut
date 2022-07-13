@@ -1,36 +1,55 @@
-//style
+// MATERIAL UI
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
-import styled from "styled-components";
+// USESTATE
+import { useState } from "react";
+
+// REACT ROUTER
 import { Link } from "react-router-dom";
 
-const Categories = () => {
+export default function Categories() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
-    <Category>
-      <h4>
-        <Link to="/category/all"> all </Link> |
-        <Link to="/category/desk-lamps"> desk lamps</Link> |
-        <Link to="/category/floor-lamps"> floor lamps </Link>
-      </h4>
-    </Category>
+    <div>
+      <Button
+        id="basic-button"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        categories
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+      >
+        <MenuItem onClick={handleClose}>
+          <Link to="/">All</Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/category/desklamps">Desk lamps</Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/category/floorlamps">Floor lamps</Link>
+        </MenuItem>
+      </Menu>
+    </div>
   );
-};
-
-const Category = styled.div`
-  position: absolute;
-  top: 1.3rem;
-  left: 17rem;
-
-  a {
-    cursor: pointer;
-    list-style: none;
-    text-decoration: none;
-    color: #000000;
-    font-size: 1rem;
-    font-weight: 100;
-    &:hover {
-      color: #e58b0d;
-    }
-  }
-`;
-
-export default Categories;
+}
