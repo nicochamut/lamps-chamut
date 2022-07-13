@@ -37,6 +37,7 @@ const NavBar = () => {
 
 const NavBarStyled = styled.div`
   height: 3.5rem;
+
   background: #fff;
   display: flex;
   justify-content: space-between;

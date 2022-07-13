@@ -45,7 +45,7 @@ const Category = () => {
     <ItemListStyled>
       {data &&
         data.map((x) => (
-          <Link to={`/category/${category}`}>
+          <Link to={`/category/${category}`} className="link-items ">
             <Item prop={x} key={x.id} />
           </Link>
         ))}

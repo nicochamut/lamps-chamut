@@ -15,10 +15,8 @@ html {
 }
 
 body {
-    background:#ffffff;
     font-family: 'Inter', sans-serif;
     color: white;
-
 }
 
 

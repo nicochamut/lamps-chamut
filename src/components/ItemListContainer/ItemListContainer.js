@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 
 // Components
 import Item from "../Item/Item";
-import { getProducts } from "../State/asyncMock";
 
 //firebase
 import { db } from "../../firestore/firestoreConfig";

@@ -48,6 +48,10 @@ function App() {
   );
 }
 
-const AppS = styled.div``;
+const AppS = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default App;

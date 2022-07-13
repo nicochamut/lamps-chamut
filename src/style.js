@@ -10,7 +10,6 @@ export const ItemListStyled = styled.div`
   margin-top: 3rem;
   color: black;
   .link-items {
-    background: red;
     width: 0rem;
     margin: 7rem;
     padding: 0px;
