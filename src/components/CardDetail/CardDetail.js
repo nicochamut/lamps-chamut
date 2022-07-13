@@ -61,9 +61,9 @@ const CardDetail = () => {
       const docs = [];
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
-        console.log(docs);
+        console.log({ docs });
       });
-      setCard({ docs });
+      setCard(docs);
     };
     getP();
   }, []);

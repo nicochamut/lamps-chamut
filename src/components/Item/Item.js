@@ -5,14 +5,14 @@ const Item = ({ prop }) => {
   return (
     <StyledItem>
       <h1>{prop.title}</h1>
-      <Link to={`/detail/:${prop.id}`}>
+      <Link to={`/detail/${prop.id}`}>
         <div>
           <img src={prop.imageUrl} alt={prop.title} />
         </div>
       </Link>
       <p>{prop.features}</p>
       <h3>${prop.price}</h3>
-      <Link to={`/detail/:${prop.id}`}>
+      <Link to={`/detail/${prop.id}`}>
         <button>see more</button>{" "}
       </Link>
     </StyledItem>
@@ -27,7 +27,7 @@ const StyledItem = styled.div`
   background: #ffffff;
   text-align: center;
   padding: 10px;
-  margin: 5rem;
+
   width: 24rem;
   height: 42rem;
   border-radius: 5px;
