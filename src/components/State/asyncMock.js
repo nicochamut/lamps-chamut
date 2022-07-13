@@ -96,13 +96,11 @@ export const getProductsByCategory = (prop) => {
 
 export const getProducts = () => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (listaProductos.length > 0) {
-        resolve(listaProductos);
-      } else {
-        console(reject);
-      }
-    }, 400);
+    if (listaProductos.length > 0) {
+      resolve(listaProductos);
+    } else {
+      console(reject);
+    }
   });
 };
 

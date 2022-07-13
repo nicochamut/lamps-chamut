@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 // CONTEXT
 import { CtxProvider } from "./context/CartContext/CartContext";
+import ProductsProvider from "./context/ProductsContext/ProductsContext";
 
 // COMPONENTS
 import NavBar from "./components/NavBar";
@@ -21,35 +22,27 @@ import Category from "./pages/Category/Category";
 import CartView from "./pages/Cart/CartView";
 
 function App() {
-  const [counterCart, setCounterCart] = useState(0);
-
   return (
     <BrowserRouter>
       <CtxProvider>
-        <div className="App">
-          <GlobalStyle />
-          <header className="App-header">
-            <NavBar counterCart={counterCart} />
-          </header>
-          <AppS>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route
-                path="category/:id/item/:id"
-                element={
-                  <DetailSection
-                    setCounterCart={setCounterCart}
-                    counterCart={counterCart}
-                  />
-                }
-              />
-              <Route path="/category/:id" element={<Category />} />
-              <Route path="/cart" element={<CartView />} />
-            </Routes>
-          </AppS>
-        </div>
+        <ProductsProvider>
+          <div className="App">
+            <GlobalStyle />
+            <header className="App-header">
+              <NavBar />
+            </header>
+            <AppS>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/detail/:id" element={<DetailSection />} />
+                <Route path="/category/:id" element={<Category />} />
+                <Route path="/cart" element={<CartView />} />
+              </Routes>
+            </AppS>
+          </div>
+        </ProductsProvider>
       </CtxProvider>
     </BrowserRouter>
   );

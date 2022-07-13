@@ -5,14 +5,14 @@ const Item = ({ prop }) => {
   return (
     <StyledItem>
       <h1>{prop.title}</h1>
-      <Link to={`/category/:id/item/${prop.id}`}>
+      <Link to={`/detail/:${prop.id}`}>
         <div>
           <img src={prop.imageUrl} alt={prop.title} />
         </div>
       </Link>
       <p>{prop.features}</p>
       <h3>${prop.price}</h3>
-      <Link to={`/category/:id/item/${prop.id}`}>
+      <Link to={`/detail/:${prop.id}`}>
         <button>see more</button>{" "}
       </Link>
     </StyledItem>

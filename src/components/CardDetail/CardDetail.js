@@ -6,6 +6,16 @@ import { getProductById } from "../State/asyncMock";
 //ID ROUTE
 import { useParams } from "react-router-dom";
 
+// firebase
+import { db } from "../../firestore/firestoreConfig";
+import {
+  collection,
+  query,
+  getDocs,
+  documentId,
+  where,
+} from "firebase/firestore";
+
 //CONTEXT
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext";
@@ -17,12 +27,20 @@ import styled from "styled-components";
 import ItemCount from "../ItemCount/ItemCount";
 import PurchaseButton from "../PurchaseButton/PurchaseButton";
 
-const CardDetail = ({ counterCart, setCounterCart }) => {
+const CardDetail = () => {
   const [card, setCard] = useState([]);
   const [itemVisibility, setItemVisibility] = useState(true);
 
   //CONTEXT
-  const [productsCart, addCart] = useContext(CartContext);
+  const [
+    productsCart,
+    addCart,
+    clearCart,
+    deleteItem,
+    orderTotal,
+    counterCart,
+    setCounterCart,
+  ] = useContext(CartContext);
 
   let { id } = useParams();
 
@@ -32,46 +50,48 @@ const CardDetail = ({ counterCart, setCounterCart }) => {
     } else {
       setCounterCart(counterCart + num);
       setItemVisibility(false);
-      console.log(card);
       addCart({ ...card }, num);
     }
   };
 
   useEffect(() => {
-    console.log(productsCart);
-  }, [productsCart]);
-
-  useEffect(() => {
-    getProductById(id).then((res) => setCard(res));
-  }, [id]);
+    const getP = async () => {
+      const q = query(collection(db, "lamps"), where(documentId(), "==", id));
+      const querySnapshot = await getDocs(q);
+      const docs = [];
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+        console.log(docs);
+      });
+      setCard({ docs });
+    };
+    getP();
+  }, []);
 
   return (
     <DetailStyle>
-      <Card>
-        <img src={card.imageUrl} alt={card.title}></img>
-        <Features>
-          <div className="title">
-            <h1>{card.title}</h1>
-          </div>
-          <div className="feat">
-            <h3>{card.features}</h3>
-          </div>
-          {itemVisibility ? (
-            <ItemCount
-              stock={card.stock}
-              onAdd={onAdd}
-              setCounterCart={setCounterCart}
-              counterCart={counterCart}
-            />
-          ) : (
-            <PurchaseButton />
-          )}
-        </Features>
-      </Card>
+      {card.length > 0 ? (
+        <Card>
+          <Features>
+            <div className="title">
+              <h1>{card.title}</h1>
+            </div>
+            <div className="feat">
+              <h3>{card.features}</h3>
+            </div>
+            {itemVisibility ? (
+              <ItemCount stock={card.stock} onAdd={onAdd} />
+            ) : (
+              <PurchaseButton />
+            )}
+          </Features>
+        </Card>
+      ) : (
+        <h1>"cargando.."</h1>
+      )}
     </DetailStyle>
   );
 };
-
 const DetailStyle = styled.div`
   display: flex;
   justify-content: center;
@@ -96,8 +116,8 @@ const Features = styled.div`
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-
   height: 45rem;
+
   .title {
     border-bottom: 1px solid black;
     border-left: 1px solid black;

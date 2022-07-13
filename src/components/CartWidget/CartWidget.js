@@ -6,14 +6,23 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext";
 
-const CartWidget = ({ counterCart }) => {
-  const [products, setProducts, clearCart] = useContext(CartContext);
+const CartWidget = () => {
+  const [
+    productsCart,
+    addCart,
+    clearCart,
+    deleteItem,
+    orderTotal,
+    counterCart,
+    setCounterCart,
+  ] = useContext(CartContext);
   return (
-      <CartStyled>
-           <Link to={"/cart"} className="cart-counter">
-        <FontAwesomeIcon icon={faCartShopping} className="icon"/>
+    <CartStyled>
+      <Link to={"/cart"} className="cart-counter">
+        <FontAwesomeIcon icon={faCartShopping} className="icon" />
         <p>{counterCart}</p>
-        </Link>
+      </Link>
+      {counterCart > 0 ? (
         <button
           onClick={() => {
             clearCart();
@@ -21,7 +30,8 @@ const CartWidget = ({ counterCart }) => {
         >
           clear cart
         </button>
-      </CartStyled>
+      ) : null}
+    </CartStyled>
   );
 };
 
@@ -34,12 +44,10 @@ const CartStyled = styled.div`
   list-style: none;
   text-decoration: none;
   color: black;
-  .cart-counter{
+  .cart-counter {
     display: flex;
-  justify-content: center;
-  text-align: center;
-  
-
+    justify-content: center;
+    text-align: center;
   }
   cursor: pointer;
   p {
@@ -55,27 +63,27 @@ const CartStyled = styled.div`
     align-items: center;
     margin: 8px;
   }
-  button{
+  button {
     width: 6rem;
     border-radius: 0.7rem;
     margin: 0.1rem;
     text-decoration: none;
     list-style: none;
-    border:  1px solid black;
+    border: 1px solid black;
     height: 2.2rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    &:hover{
+    &:hover {
       color: white;
       background: red;
     }
   }
-  .icon{
+  .icon {
     height: 2rem;
     align-self: center;
     transition: all 0.3s ease-out;
     color: black;
-    &:hover{
+    &:hover {
       height: 2.4rem;
     }
   }

@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 export const CtxProvider = ({ children }) => {
-  const [state, setState] = useState([]);
+  const [counterCart, setCounterCart] = useState(0);
   const [productsCart, setProductsCart] = useState([]);
 
   function isInCart(id) {
@@ -28,17 +28,32 @@ export const CtxProvider = ({ children }) => {
 
   const clearCart = () => {
     setProductsCart([]);
+
+    setCounterCart(0);
   };
 
   const deleteItem = (id) => {
     setProductsCart(productsCart.filter((i) => i.id !== id));
   };
 
- 
+  const orderTotal = () => {
+    return productsCart.reduce(
+      (acum, item) => acum + item.quantity * item.price,
+      0
+    );
+  };
 
   return (
     <CartContext.Provider
-      value={[productsCart, addCart, clearCart, deleteItem]}
+      value={[
+        productsCart,
+        addCart,
+        clearCart,
+        deleteItem,
+        orderTotal,
+        counterCart,
+        setCounterCart,
+      ]}
     >
       {children}
     </CartContext.Provider>

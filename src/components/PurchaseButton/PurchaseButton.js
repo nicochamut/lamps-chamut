@@ -1,40 +1,50 @@
-import styled from "styled-components"
-import { Link } from "react-router-dom"
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const PurchaseButton = () => {
-
-    return (<PurchaseStyled>
- <Link className="link" to="/cart"> <Button> Finish the order. </Button> </Link>
-        </PurchaseStyled>)
-}
-
+  return (
+    <PurchaseStyled>
+      <Link to="/" className="link">
+        <Button2>Keep buying.</Button2>
+      </Link>
+      <Link className="link" to="/cart">
+        {" "}
+        <Button> Finish the order. </Button>{" "}
+      </Link>
+    </PurchaseStyled>
+  );
+};
 
 const PurchaseStyled = styled.div`
-.link{
-    list-style: none ;
-    text-decoration: none ;
+  display: flex;
+  margin-bottom: 2rem;
+  .link {
+    list-style: none;
+    text-decoration: none;
     color: white;
-    
-}
-`
-
-
+  }
+`;
 
 const Button = styled.div`
-display: flex ;
-justify-content: center ;
-align-items: center ;
-background: red;
-border-radius: 1rem ;
-width: 10rem;
-height: 3rem;
-text-align: center;
-cursor: pointer;
-margin-bottom: 2rem;
-&:hover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  border-radius: 10px;
+  width: 7rem;
+  height: 2.6rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 0.8rem;
+  margin: 0.5rem;
+  &:hover {
     background: #65011b;
-}
-`
+  }
+`;
 
+const Button2 = styled(Button)`
+  background: green;
+`;
 
-export default PurchaseButton
+export default PurchaseButton;

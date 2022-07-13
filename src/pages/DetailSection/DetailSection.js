@@ -1,9 +1,9 @@
 import CardDetail from "../../components/CardDetail/CardDetail";
 
-const DetailSection = ({ setCounterCart, counterCart }) => {
+const DetailSection = () => {
   return (
     <div>
-      <CardDetail setCounterCart={setCounterCart} counterCart={counterCart} />
+      <CardDetail />
     </div>
   );
 };

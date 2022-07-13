@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext/CartContext";
 
-const NavBar = ({ counterCart }) => {
-  const [clearCart] = useContext(CartContext);
+const NavBar = () => {
+  const [clearCart, counterCart, setCounterCart] = useContext(CartContext);
 
   return (
     <NavBarStyled>
