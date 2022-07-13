@@ -29,7 +29,7 @@ const StyledItem = styled.div`
   padding: 10px;
 
   width: 24rem;
-  height: 42rem;
+  height: 44rem;
   border-radius: 5px;
   border: 1px solid black;
   box-shadow: 1px 2px 5px #3333338d;
