@@ -98,9 +98,8 @@ const Features = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #585853;
-    color: white;
-    background: linear-gradient(to right, #333333, #666666);
+
+    border-bottom: 1px solid black;
   }
 
   .feat {
