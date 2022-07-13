@@ -27,10 +27,10 @@ import styled from "styled-components";
 import ItemCount from "../ItemCount/ItemCount";
 import PurchaseButton from "../PurchaseButton/PurchaseButton";
 
-const CardDetail = () => {
-  const [card, setCard] = useState([]);
+const CardDetail = ({ props }) => {
   const [itemVisibility, setItemVisibility] = useState(true);
 
+  console.log(props);
   //CONTEXT
   const [
     productsCart,
@@ -50,44 +50,47 @@ const CardDetail = () => {
     } else {
       setCounterCart(counterCart + num);
       setItemVisibility(false);
-      addCart({ ...card }, num);
+      addCart({ ...props }, num);
     }
   };
 
-  useEffect(() => {
-    const getP = async () => {
-      const q = query(collection(db, "lamps"), where(documentId(), "==", id));
-      const querySnapshot = await getDocs(q);
-      const docs = [];
-      querySnapshot.forEach((doc) => {
-        docs.push({ ...doc.data(), id: doc.id });
-        console.log({ docs });
-      });
-      setCard(docs);
-    };
-    getP();
-  }, []);
+  // useEffect(() => {
+  //   const getP = async () => {
+  //     const q = query(collection(db, "lamps"), where(documentId(), "==", id));
+  //     const querySnapshot = await getDocs(q);
+  //     const docs = [];
+  //     querySnapshot.forEach((doc) => {
+  //       docs.push({ ...doc.data(), id: doc.id });
+  //       console.log(docs[0]);
+  //     });
+
+  //     setCard(docs);
+  //   };
+  //   getP();
+  // }, []);
 
   return (
     <DetailStyle>
-      {card.length > 0 ? (
+      {props.category ? (
         <Card>
+          <img src={props.imageUrl} />
           <Features>
             <div className="title">
-              <h1>{card.title}</h1>
+              <h1>{props.title}</h1>
             </div>
+            <div> </div>
             <div className="feat">
-              <h3>{card.features}</h3>
+              <h3>{props.features}</h3>
             </div>
             {itemVisibility ? (
-              <ItemCount stock={card.stock} onAdd={onAdd} />
+              <ItemCount stock={props.stock} onAdd={onAdd} />
             ) : (
               <PurchaseButton />
             )}
           </Features>
         </Card>
       ) : (
-        <h1>"cargando.."</h1>
+        <h1>cargando...</h1>
       )}
     </DetailStyle>
   );
@@ -106,8 +109,11 @@ const Card = styled.div`
   color: black;
   border: 1px solid black;
   padding: 1rem;
+  height: 50rem;
+  padding: 2rem;
   img {
     height: 45rem;
+    margin-right: 2rem;
   }
 `;
 
@@ -116,18 +122,31 @@ const Features = styled.div`
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  height: 45rem;
+  height: 49rem;
+  width: 35rem;
+  font-size: 1.5rem;
 
   .title {
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
+    width: 30rem;
+    margin: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #585853;
+    color: white;
+    background: linear-gradient(to right, #333333, #666666);
   }
+
   .feat {
-    height: 10rem;
-    width: 20rem;
+    height: 20rem;
+    width: 40rem;
     display: flex;
     justify-content: center;
     padding: 3rem;
+    text-align: center;
+    padding-bottom: 12rem;
+    margin: 2rem;
   }
 
   h1 {

@@ -1,12 +1,15 @@
 //style
 import styled from "styled-components";
+import { ItemListStyled } from "../../style";
 
 //react
 import { useState, useEffect } from "react";
 
-// Components
+// REACT ROUTER
+import { Link } from "react-router-dom";
 
-import ItemList from "../ItemList/ItemList";
+// Components
+import Item from "../Item/Item";
 import { getProducts } from "../State/asyncMock";
 
 //firebase
@@ -37,21 +40,18 @@ const ItemListContainer = () => {
   }, []);
 
   return (
-    <ListStyled>
-      {state.length > 0 ? <ItemList prop={state} /> : <h2>cargando...</h2>}
-    </ListStyled>
+    <ItemListStyled>
+      {state.length > 0 ? (
+        state.map((item) => (
+          <Link to={`/detail/${item.id}`} key={item.id} className="link-items">
+            <Item prop={item} key={item.id} />
+          </Link>
+        ))
+      ) : (
+        <h2>cargando..</h2>
+      )}
+    </ItemListStyled>
   );
 };
-
-const ListStyled = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    height: 23rem;
-    object-fit: cover;
-  }
-`;
 
 export default ItemListContainer;
