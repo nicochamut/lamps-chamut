@@ -15,10 +15,6 @@ import Item from "../Item/Item";
 import { db } from "../../firestore/firestoreConfig";
 import { collection, query, getDocs } from "firebase/firestore";
 
-//context
-import { useContext } from "react";
-import { ProductsContext } from "../../context/ProductsContext/ProductsContext";
-
 const ItemListContainer = () => {
   const [state, setState] = useState([]);
 
@@ -39,18 +35,36 @@ const ItemListContainer = () => {
   }, []);
 
   return (
-    <ItemListStyled>
-      {state.length > 0 ? (
-        state.map((item) => (
-          <Link to={`/detail/${item.id}`} key={item.id} className="link-items">
-            <Item prop={item} key={item.id} />
-          </Link>
-        ))
-      ) : (
-        <h2>cargando..</h2>
-      )}
-    </ItemListStyled>
+    <div>
+      <TitleCategory>
+        <h1> All our lamps</h1>
+      </TitleCategory>
+      <ItemListStyled>
+        {state.length > 0 ? (
+          state.map((item) => (
+            <Link
+              to={`/detail/${item.id}`}
+              key={item.id}
+              className="link-items"
+            >
+              <Item prop={item} />
+            </Link>
+          ))
+        ) : (
+          <h2>cargando..</h2>
+        )}
+      </ItemListStyled>
+    </div>
   );
 };
+
+const TitleCategory = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 5rem;
+  margin-top: 2rem;
+`;
 
 export default ItemListContainer;

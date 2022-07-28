@@ -5,11 +5,11 @@ const PurchaseButton = () => {
   return (
     <PurchaseStyled>
       <Link to="/" className="link">
-        <Button2>Keep buying.</Button2>
+        <Button2>Keep buying</Button2>
       </Link>
       <Link className="link" to="/cart">
         {" "}
-        <Button> Finish the order. </Button>{" "}
+        <Button> Go to cart</Button>{" "}
       </Link>
     </PurchaseStyled>
   );

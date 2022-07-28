@@ -6,15 +6,15 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext";
 
 const CounterItem = ({ props }) => {
-  const [
-    productsCart,
-    addCart,
-    clearCart,
-    deleteItem,
-    orderTotal,
-    counterCart,
-    setCounterCart,
-  ] = useContext(CartContext);
+  // const [
+  //   productsCart,
+  //   addCart,
+  //   clearCart,
+  //   deleteItem,
+  //   orderTotal,
+  //   counterCart,
+  //   setCounterCart,
+  // ] = useContext(CartContext);
 
   return (
     <CounterI>
@@ -36,13 +36,22 @@ const CounterI = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid grey;
   border-radius: 6px;
+  background: none;
 
   button {
     width: 2rem;
     font-size: 1.2rem;
     border: none;
+    background: none;
+    color: white;
+  }
+  @media (max-width: 700px) {
+    width: 6rem;
+    position: absolute;
+    bottom: 2rem;
+    right: 4rem;
   }
 `;
 export default CounterItem;

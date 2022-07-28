@@ -20,15 +20,20 @@ import {
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext";
 
-// STYLED COMPONENTS
-import styled from "styled-components";
-
-// COMPONENTS
-import ItemCount from "../../components/ItemCount/ItemCount";
-import PurchaseButton from "../../components/PurchaseButton/PurchaseButton";
-
 const DetailSection = () => {
   const [card, setCard] = useState([]);
+
+  const {
+    productsCart,
+    addCart,
+    clearCart,
+    deleteItem,
+    orderTotal,
+    counterCart,
+    setCounterCart,
+    cartWCounter,
+    setCartWCounter,
+  } = useContext(CartContext);
 
   let { id } = useParams();
 
@@ -40,9 +45,7 @@ const DetailSection = () => {
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
       });
-
       setCard(...docs);
-      console.log(card);
     };
     getP();
   }, []);

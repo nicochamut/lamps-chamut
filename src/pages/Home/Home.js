@@ -10,10 +10,6 @@ const Home = () => {
   );
 };
 
-const HomeS = styled.div`
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-`;
+const HomeS = styled.div``;
 
 export default Home;

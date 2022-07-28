@@ -20,6 +20,7 @@ import Contact from "./pages/Contact/Contact";
 import DetailSection from "./pages/DetailSection/DetailSection";
 import Category from "./pages/Category/Category";
 import CartView from "./pages/Cart/CartView";
+import Checkout from "./pages/checkout/Checkout";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/detail/:id" element={<DetailSection />} />
                 <Route path="/category/:category" element={<Category />} />
                 <Route path="/cart" element={<CartView />} />
+                <Route path="/cart/checkout" element={<Checkout />} />
               </Routes>
             </AppS>
           </div>

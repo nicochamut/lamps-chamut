@@ -11,7 +11,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext/CartContext";
 
 const NavBar = () => {
-  const [clearCart, counterCart, setCounterCart] = useContext(CartContext);
+  const { clearCart, counterCart, setCounterCart } = useContext(CartContext);
 
   return (
     <NavBarStyled>
@@ -20,17 +20,25 @@ const NavBar = () => {
       </Link>
       <Categories />
       <Clickables>
-        <Link className="links" to="/">
-          Home
-        </Link>
-        <Link className="links" to="/about">
-          About
-        </Link>
-        <Link className="links" to="/contact">
-          Contact
-        </Link>
+        <div>
+          <Link className="links" to="/">
+            Home
+          </Link>
+        </div>
+        <div>
+          <Link className="links" to="/about">
+            About
+          </Link>
+        </div>
+        <div>
+          <Link className="links" to="/contact">
+            Contact
+          </Link>
+        </div>
       </Clickables>
-      <CartWidget counterCart={counterCart} />
+      <div className="widget">
+        <CartWidget counterCart={counterCart} />
+      </div>
     </NavBarStyled>
   );
 };
@@ -38,12 +46,12 @@ const NavBar = () => {
 const NavBarStyled = styled.div`
   height: 3.5rem;
 
-  background: #fff;
+  background: #2b2b2b;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;
-  color: black;
+  color: #fff;
   list-style: none;
   text-decoration: none;
 
@@ -51,23 +59,39 @@ const NavBarStyled = styled.div`
     margin-left: 2rem;
     font-size: 2rem;
     font-family: "Noto Serif", serif;
+    color: white;
   }
   .brand {
     list-style: none;
     text-decoration: none;
     color: black;
   }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    overflow-x: hidden;
+    height: 8rem;
+    .widget {
+      position: absolute;
+      right: 1rem;
+    }
+  }
 `;
 
 const Clickables = styled.ul`
+  margin: 2rem;
+  font-size: 1.5rem;
+
+  width: 40rem;
   display: flex;
   justify-content: space-around;
-  font-size: 1.5rem;
+  align-items: center;
+
   .links {
-    margin-right: 8rem;
     list-style: none;
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
+    color: white;
     &:hover {
       color: #e58b0d;
     }

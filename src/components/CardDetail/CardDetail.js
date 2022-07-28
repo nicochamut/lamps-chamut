@@ -14,7 +14,7 @@ import PurchaseButton from "../PurchaseButton/PurchaseButton";
 const CardDetail = ({ props }) => {
   const [itemVisibility, setItemVisibility] = useState(true);
 
-  const [
+  const {
     productsCart,
     addCart,
     clearCart,
@@ -22,15 +22,18 @@ const CardDetail = ({ props }) => {
     orderTotal,
     counterCart,
     setCounterCart,
-  ] = useContext(CartContext);
+    cartWCounter,
+    setCartWCounter,
+    consoleFunc,
+  } = useContext(CartContext);
 
   const onAdd = (num) => {
     if (num === 0) {
       return;
     } else {
-      setCounterCart(counterCart + num);
       setItemVisibility(false);
       addCart({ ...props }, num);
+      consoleFunc(num);
     }
   };
 
@@ -65,20 +68,43 @@ const DetailStyle = styled.div`
   justify-content: center;
   align-items: center;
   height: 95vh;
+
+  @media (max-width: 700px) {
+    width: 25rem;
+    height: 80vh;
+  }
 `;
 
 const Card = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: white;
   border: 1px solid black;
   padding: 1rem;
-  height: 50rem;
+  height: 42rem;
   padding: 2rem;
+  background: #131313;
+  box-shadow: 5px 5px 5px black;
   img {
-    height: 45rem;
+    height: 30rem;
     margin-right: 2rem;
+  }
+
+  @media (max-width: 700px) {
+    height: 48rem;
+    width: 30rem;
+
+    position: relative;
+
+    img {
+      height: 20rem;
+      width: 20rem;
+      object-fit: cover;
+      margin-right: 0rem;
+      margin-top: 6rem;
+    }
+    flex-direction: column;
   }
 `;
 
@@ -87,9 +113,9 @@ const Features = styled.div`
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  height: 49rem;
+  height: 40rem;
   width: 35rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
 
   .title {
     width: 30rem;
@@ -98,8 +124,6 @@ const Features = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    border-bottom: 1px solid black;
   }
 
   .feat {
@@ -120,6 +144,30 @@ const Features = styled.div`
     width: 15rem;
     text-align: center;
     padding: 2px;
+  }
+
+  @media (max-width: 700px) {
+    height: 20rem;
+    width: 25rem;
+    justify-content: center;
+
+    .title {
+      height: 0rem;
+      width: 10rem;
+
+      margin: 0rem;
+      position: absolute;
+      top: 3rem;
+      border: none;
+    }
+    .feat {
+      height: 5rem;
+      width: 28rem;
+      margin: 0rem;
+      padding: 0rem;
+
+      margin-top: 5rem;
+    }
   }
 `;
 

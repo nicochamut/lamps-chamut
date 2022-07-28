@@ -5,6 +5,7 @@ export const CartContext = createContext();
 export const CtxProvider = ({ children }) => {
   const [counterCart, setCounterCart] = useState(0);
   const [productsCart, setProductsCart] = useState([]);
+  const [cartWCounter, setCartWCounter] = useState(0);
 
   function isInCart(id) {
     return productsCart.some((item) => item.id === id);
@@ -43,9 +44,19 @@ export const CtxProvider = ({ children }) => {
     );
   };
 
+  const totalProducts = () => {
+    let total = 0;
+    productsCart.forEach((item) => (total += item.quantity));
+    return total;
+    console.log(total);
+  };
+
+  const consoleFunc = (num) => {
+    setCartWCounter(cartWCounter + num);
+  };
   return (
     <CartContext.Provider
-      value={[
+      value={{
         productsCart,
         addCart,
         clearCart,
@@ -53,7 +64,11 @@ export const CtxProvider = ({ children }) => {
         orderTotal,
         counterCart,
         setCounterCart,
-      ]}
+        cartWCounter,
+        setCartWCounter,
+        consoleFunc,
+        totalProducts,
+      }}
     >
       {children}
     </CartContext.Provider>

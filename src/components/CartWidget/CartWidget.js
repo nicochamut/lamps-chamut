@@ -5,24 +5,20 @@ import { Link } from "react-router-dom";
 //context
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext";
+import { useEffect } from "react";
 
 const CartWidget = () => {
-  const [
-    productsCart,
-    addCart,
-    clearCart,
-    deleteItem,
-    orderTotal,
-    counterCart,
-    setCounterCart,
-  ] = useContext(CartContext);
+  const { clearCart, cartWCounter, totalProducts } = useContext(CartContext);
+
+  useEffect(() => {}, [totalProducts]);
   return (
     <CartStyled>
       <Link to={"/cart"} className="cart-counter">
         <FontAwesomeIcon icon={faCartShopping} className="icon" />
-        <p>{counterCart}</p>
+        <p>{totalProducts()}</p>
       </Link>
-      {counterCart > 0 ? (
+
+      {totalProducts() > 0 ? (
         <button
           onClick={() => {
             clearCart();
@@ -43,6 +39,7 @@ const CartStyled = styled.div`
   margin-right: 10px;
   list-style: none;
   text-decoration: none;
+
   color: black;
   .cart-counter {
     display: flex;
@@ -73,6 +70,9 @@ const CartStyled = styled.div`
     height: 2.2rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    position: absolute;
+    right: 7rem;
+
     &:hover {
       color: white;
       background: red;
@@ -82,7 +82,7 @@ const CartStyled = styled.div`
     height: 2rem;
     align-self: center;
     transition: all 0.3s ease-out;
-    color: black;
+    color: white;
     &:hover {
       height: 2.4rem;
     }

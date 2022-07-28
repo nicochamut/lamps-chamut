@@ -5,6 +5,9 @@ import { ItemListStyled } from "../../style";
 import { db } from "../../firestore/firestoreConfig";
 import { collection, query, getDocs, where } from "firebase/firestore";
 
+//style
+import styled from "styled-components";
+
 // React
 import { useState, useEffect } from "react";
 
@@ -14,17 +17,12 @@ import { useParams } from "react-router";
 // ROUTER
 import { Link } from "react-router-dom";
 
-// Components
-import ItemListContainer from "../../components/ItemListContainer/ItemListContainer";
-
 const Category = () => {
   const [data, setData] = useState([]);
 
   const { category } = useParams();
 
-  console.log(category);
   useEffect(() => {
-    console.log(category);
     const getP = async () => {
       const q = query(
         collection(db, "lamps"),
@@ -35,22 +33,35 @@ const Category = () => {
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id });
       });
-      console.log(docs);
       setData(docs);
     };
     getP();
   }, [category]);
 
   return (
-    <ItemListStyled>
-      {data &&
-        data.map((x) => (
-          <Link to={`/category/${category}`} className="link-items ">
-            <Item prop={x} key={x.id} />
-          </Link>
-        ))}
-    </ItemListStyled>
+    <div>
+      <TitleCategory>
+        {category === "desklamps" ? <h1>Desk lamps</h1> : <h1>Floor lamps</h1>}
+      </TitleCategory>
+      <ItemListStyled>
+        {data &&
+          data.map((x) => (
+            <Link to={`/detail/${x.id}`} key={x.id} className="link-items ">
+              <Item prop={x} key={x.id} />
+            </Link>
+          ))}
+      </ItemListStyled>
+    </div>
   );
 };
+
+const TitleCategory = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 5rem;
+  margin-top: 2rem;
+`;
 
 export default Category;
