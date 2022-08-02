@@ -16,24 +16,8 @@ import {
   where,
 } from "firebase/firestore";
 
-// CONTEXT
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext/CartContext";
-
 const DetailSection = () => {
   const [card, setCard] = useState([]);
-
-  const {
-    productsCart,
-    addCart,
-    clearCart,
-    deleteItem,
-    orderTotal,
-    counterCart,
-    setCounterCart,
-    cartWCounter,
-    setCartWCounter,
-  } = useContext(CartContext);
 
   let { id } = useParams();
 
@@ -48,7 +32,7 @@ const DetailSection = () => {
       setCard(...docs);
     };
     getP();
-  }, []);
+  }, [id]);
   return (
     <div>
       {" "}

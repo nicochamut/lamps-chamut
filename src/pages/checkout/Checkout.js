@@ -26,7 +26,7 @@ const Checkout = () => {
 
   const [values, setValues] = useState(initial);
 
-  const { productsCart } = useContext(CartContext);
+  const { productsCart, setProductsCart } = useContext(CartContext);
 
   const [idPurchase, setIdPurchase] = useState();
 
@@ -37,21 +37,22 @@ const Checkout = () => {
       if (values.email !== values.confirmEmail) {
         alert("the mail have to be the same");
       } else if (values.email === values.confirmEmail) {
-        console.log([values, productsCart]);
         setValues(initial);
         const docRef = await addDoc(collection(db, "orders"), {
           values,
           productsCart,
         });
+        setTimeout(() => {
+          setIdPurchase("");
+        }, 10000);
         setIdPurchase(docRef.id);
+        setTimeout(() => {
+          setProductsCart([]);
+        }, 12000);
       }
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIdPurchase("");
-    }, 10000);
-  }, [idPurchase]);
+  useEffect(() => {}, [idPurchase]);
 
   const handleChange = (evt) => {
     const { target } = evt;
@@ -64,9 +65,6 @@ const Checkout = () => {
 
     setValues(newValues);
   };
-
-  //style phone alert
-  let input = document.getElementById("phone");
 
   return (
     <EmailSection

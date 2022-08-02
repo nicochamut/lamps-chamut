@@ -3,9 +3,7 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 export const CtxProvider = ({ children }) => {
-  const [counterCart, setCounterCart] = useState(0);
   const [productsCart, setProductsCart] = useState([]);
-  const [cartWCounter, setCartWCounter] = useState(0);
 
   function isInCart(id) {
     return productsCart.some((item) => item.id === id);
@@ -29,7 +27,6 @@ export const CtxProvider = ({ children }) => {
 
   const clearCart = () => {
     setProductsCart([]);
-    setCounterCart(0);
   };
 
   const deleteItem = (id) => {
@@ -52,11 +49,10 @@ export const CtxProvider = ({ children }) => {
   const itemQuantity = (id, addorrest) => {
     const item = productsCart.find((i) => i.id === id);
 
-    if (addorrest == "rest" && item.quantity > 1) {
+    if (addorrest === "rest" && item.quantity > 1) {
       item.quantity--;
-    } else if (addorrest == "add" && item.quantity <= item.stock - 1) {
+    } else if (addorrest === "add" && item.quantity <= item.stock - 1) {
       item.quantity++;
-      console.log(item.stock);
     }
 
     const newCart = [];
@@ -74,15 +70,12 @@ export const CtxProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         productsCart,
+        setProductsCart,
         addCart,
         clearCart,
         isInCart,
         deleteItem,
         orderTotal,
-        counterCart,
-        setCounterCart,
-        cartWCounter,
-        setCartWCounter,
         totalProducts,
         itemQuantity,
       }}

@@ -23,9 +23,12 @@ const CartWidget = () => {
 
   useEffect(() => {}, [totalProducts]);
 
-  if (location.pathname == "/cart/checkout" && totalProducts() <= 0) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (location.pathname == "/cart/checkout" && totalProducts() <= 0) {
+      navigate("/");
+    }
+  }, [totalProducts()]);
+
   return (
     <CartStyled>
       <Link to={"/cart"} className="cart-counter">
