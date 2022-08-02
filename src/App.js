@@ -12,15 +12,7 @@ import { useState } from "react";
 
 // Router
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// PAGES
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Contact from "./pages/Contact/Contact";
-import DetailSection from "./pages/DetailSection/DetailSection";
-import Category from "./pages/Category/Category";
-import CartView from "./pages/Cart/CartView";
-import Checkout from "./pages/checkout/Checkout";
+import { AnimateRoutes } from "./components/AnimateRoutes/AnimateRoutes";
 
 function App() {
   return (
@@ -33,15 +25,7 @@ function App() {
               <NavBar />
             </header>
             <AppS>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/detail/:id" element={<DetailSection />} />
-                <Route path="/category/:category" element={<Category />} />
-                <Route path="/cart" element={<CartView />} />
-                <Route path="/cart/checkout" element={<Checkout />} />
-              </Routes>
+              <AnimateRoutes />
             </AppS>
           </div>
         </ProductsProvider>

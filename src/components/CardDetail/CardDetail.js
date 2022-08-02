@@ -10,22 +10,16 @@ import styled from "styled-components";
 // Components
 import ItemCount from "../ItemCount/ItemCount";
 import PurchaseButton from "../PurchaseButton/PurchaseButton";
+import Spinner from "../Spinner/Spinner";
+
+//framer motion
+import { motion } from "framer-motion";
+import { fadeOut } from "../../animations/Animations";
 
 const CardDetail = ({ props }) => {
   const [itemVisibility, setItemVisibility] = useState(true);
 
-  const {
-    productsCart,
-    addCart,
-    clearCart,
-    deleteItem,
-    orderTotal,
-    counterCart,
-    setCounterCart,
-    cartWCounter,
-    setCartWCounter,
-    consoleFunc,
-  } = useContext(CartContext);
+  const { addCart } = useContext(CartContext);
 
   const onAdd = (num) => {
     if (num === 0) {
@@ -33,12 +27,17 @@ const CardDetail = ({ props }) => {
     } else {
       setItemVisibility(false);
       addCart({ ...props }, num);
-      consoleFunc(num);
     }
   };
 
   return (
-    <DetailStyle>
+    <DetailStyle
+      variants={fadeOut}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      layout
+    >
       {props.category ? (
         <Card>
           <img src={props.imageUrl} />
@@ -51,19 +50,20 @@ const CardDetail = ({ props }) => {
               <h3>{props.features}</h3>
             </div>
             {itemVisibility ? (
-              <ItemCount stock={props.stock} onAdd={onAdd} />
+              <ItemCount stock={props.stock} props={props} onAdd={onAdd} />
             ) : (
               <PurchaseButton />
             )}
           </Features>
         </Card>
       ) : (
-        <h1>cargando...</h1>
+        <Spinner />
       )}
     </DetailStyle>
   );
 };
-const DetailStyle = styled.div`
+
+const DetailStyle = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;

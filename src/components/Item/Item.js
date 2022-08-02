@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+//framer motion
+import { motion } from "framer-motion";
+
 const Item = ({ prop }) => {
   return (
     <StyledItem>
@@ -8,13 +11,14 @@ const Item = ({ prop }) => {
         <img src={prop.imageUrl} alt={prop.title} />
       </div>
       <p>{prop.features}</p>
+      <p>{`available: ${prop.stock}`}</p>
       <h3>${prop.price}</h3>
       <button>see more</button>{" "}
     </StyledItem>
   );
 };
 
-const StyledItem = styled.div`
+const StyledItem = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -68,11 +72,11 @@ const StyledItem = styled.div`
     color: #696454;
   }
   h3 {
-    color: #a8a8a8;
+    color: #8a8a8a;
     font-family: "Montserrat", sans-serif;
     font-weight: 200;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   .image {
     background: #080808ff;

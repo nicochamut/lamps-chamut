@@ -1,8 +1,7 @@
 import Item from "../Item/Item";
-import { ItemListStyled } from "../../style";
 
 //style
-import styled from "styled-components";
+import { ItemListStyled } from "../../style";
 
 //react-router
 import { Link } from "react-router-dom";

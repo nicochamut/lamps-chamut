@@ -29,7 +29,6 @@ export const CtxProvider = ({ children }) => {
 
   const clearCart = () => {
     setProductsCart([]);
-
     setCounterCart(0);
   };
 
@@ -48,26 +47,44 @@ export const CtxProvider = ({ children }) => {
     let total = 0;
     productsCart.forEach((item) => (total += item.quantity));
     return total;
-    console.log(total);
   };
 
-  const consoleFunc = (num) => {
-    setCartWCounter(cartWCounter + num);
+  const itemQuantity = (id, addorrest) => {
+    const item = productsCart.find((i) => i.id === id);
+
+    if (addorrest == "rest" && item.quantity > 1) {
+      item.quantity--;
+    } else if (addorrest == "add" && item.quantity <= item.stock - 1) {
+      item.quantity++;
+      console.log(item.stock);
+    }
+
+    const newCart = [];
+
+    productsCart.map((i) => {
+      if (i.id === item.id) {
+        i = item;
+      }
+      newCart.push(i);
+    });
+    setProductsCart(newCart);
   };
+
   return (
     <CartContext.Provider
       value={{
         productsCart,
         addCart,
         clearCart,
+        isInCart,
         deleteItem,
         orderTotal,
         counterCart,
         setCounterCart,
         cartWCounter,
         setCartWCounter,
-        consoleFunc,
         totalProducts,
+        itemQuantity,
       }}
     >
       {children}

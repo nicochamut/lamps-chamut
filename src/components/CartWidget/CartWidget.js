@@ -1,16 +1,31 @@
+import { useEffect } from "react";
+
+//font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+
 //context
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext";
-import { useEffect } from "react";
+
+// react router
+import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+// styled components
+import styled from "styled-components";
 
 const CartWidget = () => {
-  const { clearCart, cartWCounter, totalProducts } = useContext(CartContext);
+  const { clearCart, totalProducts } = useContext(CartContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {}, [totalProducts]);
+
+  if (location.pathname == "/cart/checkout" && totalProducts() <= 0) {
+    navigate("/");
+  }
   return (
     <CartStyled>
       <Link to={"/cart"} className="cart-counter">

@@ -3,7 +3,7 @@ import { db } from "../../firestore/firestoreConfig";
 import { collection, query, getDocs } from "firebase/firestore";
 
 //Context
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const ProductsContext = createContext();
 

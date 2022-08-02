@@ -19,6 +19,11 @@ export const ItemListStyled = styled.div`
   margin-bottom: 3rem;
   box-shadow: 5px 5px 5px black;
 
+  .spinner {
+    position: absolute;
+    right: 50%;
+  }
+
   .link-items {
     list-style: none;
     text-decoration: none;

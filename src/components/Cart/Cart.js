@@ -2,15 +2,14 @@
 import styled from "styled-components";
 
 //Context
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext";
-import CounterItem from "../CounterItem/CounterItem";
 
-//COMPONENTS
+//Components
+import CounterItem from "../CounterItem/CounterItem";
 
 const Cart = ({ props }) => {
   const { deleteItem } = useContext(CartContext);
-  const [stateCart, setStateCart] = useState([]);
 
   return (
     <CartContainer>

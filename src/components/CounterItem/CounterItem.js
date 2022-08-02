@@ -1,32 +1,30 @@
-///STYLE
+///Styled components
 import styled from "styled-components";
 
-//context
+//Context
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext";
 
 const CounterItem = ({ props }) => {
-  // const [
-  //   productsCart,
-  //   addCart,
-  //   clearCart,
-  //   deleteItem,
-  //   orderTotal,
-  //   counterCart,
-  //   setCounterCart,
-  // ] = useContext(CartContext);
+  const { itemQuantity } = useContext(CartContext);
 
   return (
     <CounterI>
       <button
         onClick={() => {
-          console.log(props.quantity--);
+          itemQuantity(props.id, "rest");
         }}
       >
         -
       </button>
       <p>{props.quantity}</p>
-      <button onClick={() => {}}>+</button>
+      <button
+        onClick={() => {
+          itemQuantity(props.id, "add");
+        }}
+      >
+        +
+      </button>
     </CounterI>
   );
 };

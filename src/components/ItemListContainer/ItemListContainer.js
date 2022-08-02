@@ -1,5 +1,6 @@
 //style
 import styled from "styled-components";
+
 import { ItemListStyled } from "../../style";
 
 //react
@@ -14,6 +15,10 @@ import Item from "../Item/Item";
 //firebase
 import { db } from "../../firestore/firestoreConfig";
 import { collection, query, getDocs } from "firebase/firestore";
+import Spinner from "../Spinner/Spinner";
+
+//framer motion
+import { motion } from "framer-motion";
 
 const ItemListContainer = () => {
   const [state, setState] = useState([]);
@@ -35,7 +40,7 @@ const ItemListContainer = () => {
   }, []);
 
   return (
-    <div>
+    <motion.div>
       <TitleCategory>
         <h1> All our lamps</h1>
       </TitleCategory>
@@ -51,10 +56,12 @@ const ItemListContainer = () => {
             </Link>
           ))
         ) : (
-          <h2>cargando..</h2>
+          <div className="spinner">
+            <Spinner />
+          </div>
         )}
       </ItemListStyled>
-    </div>
+    </motion.div>
   );
 };
 

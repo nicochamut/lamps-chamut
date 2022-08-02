@@ -1,7 +1,5 @@
+//styled components
 import styled from "styled-components";
-
-//React
-import { useState } from "react";
 
 // react router
 import { Link } from "react-router-dom";
@@ -30,13 +28,14 @@ const Summary = () => {
         <h3>Subtotal</h3>
         <h3>${orderTotal() + 25}</h3>
       </div>
-
-      <div className="checkout-button">
-        <Link to="/cart/checkout">
-          {" "}
-          <button>checkout</button>
-        </Link>
-      </div>
+      {productsCart.length > 0 ? (
+        <div className="checkout-button">
+          <Link to="/cart/checkout">
+            {" "}
+            <button>checkout</button>
+          </Link>
+        </div>
+      ) : null}
     </SummaryStyled>
   );
 };

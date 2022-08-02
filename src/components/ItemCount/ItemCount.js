@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ItemCount = ({ stock, onAdd }) => {
   const [cartCounter, setCounterCart] = useState(1);
@@ -21,7 +21,13 @@ const ItemCount = ({ stock, onAdd }) => {
   return (
     <CountStyled>
       <Counter>
-        <button onClick={() => removeCounter()}>-</button>
+        <button
+          onClick={() => {
+            removeCounter();
+          }}
+        >
+          -
+        </button>
         <p>{cartCounter}</p>
         <button onClick={() => addCounter()}>+</button>
       </Counter>
@@ -30,7 +36,7 @@ const ItemCount = ({ stock, onAdd }) => {
           onAdd(cartCounter);
         }}
       >
-        Agregar al carrito
+        add to cart
       </button>
     </CountStyled>
   );

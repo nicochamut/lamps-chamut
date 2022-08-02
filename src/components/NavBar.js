@@ -1,8 +1,10 @@
 //Style
 import styled from "styled-components";
+
 //Components
 import CartWidget from "../components/CartWidget/CartWidget";
 import Categories from "./Categories/Categories";
+
 //Router
 import { Link } from "react-router-dom";
 
@@ -11,7 +13,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext/CartContext";
 
 const NavBar = () => {
-  const { clearCart, counterCart, setCounterCart } = useContext(CartContext);
+  const { counterCart } = useContext(CartContext);
 
   return (
     <NavBarStyled>

@@ -8,33 +8,24 @@ import Summary from "../../components/Summary/Summary";
 import { Link } from "react-router-dom";
 
 // CONTEXT
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext/CartContext";
-import { useEffect } from "react";
+
+// framer motion
+import { motion } from "framer-motion";
+import { fadeOut } from "../../animations/Animations";
 
 const CartView = () => {
-  const {
-    productsCart,
-    addCart,
-    clearCart,
-    deleteItem,
-    orderTotal,
-    counterCart,
-    setCounterCart,
-    cartWCounter,
-    setCartWCounter,
-    consoleFunc,
-  } = useContext(CartContext);
-
-  const quantityCart = productsCart.map((item) => item.quantity);
-  const rCart = quantityCart.reduce((acum, num) => acum + num, 0);
-
-  useEffect(() => {
-    consoleFunc(rCart);
-  }, [productsCart]);
+  const { productsCart } = useContext(CartContext);
 
   return (
-    <CartStyled>
+    <CartStyled
+      variants={fadeOut}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      layout
+    >
       <div className="items-cart">
         {productsCart.length > 0 ? (
           productsCart.map((item, idx) => <Cart props={item} key={idx} />)
@@ -54,7 +45,7 @@ const CartView = () => {
   );
 };
 
-const CartStyled = styled.div`
+const CartStyled = styled(motion.div)`
   margin: 3rem;
   padding: 2rem;
   height: 50rem;
