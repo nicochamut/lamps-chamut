@@ -7,3 +7,11 @@ export const fadeOut = {
     opacity: 0,
   },
 };
+
+export const lineAnim = {
+  hidden: { width: "0%" },
+  show: {
+    width: "30%",
+    transition: { duration: 1.1 },
+  },
+};

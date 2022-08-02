@@ -31,7 +31,7 @@ export default function Categories() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        style={{ color: "white", background: "#393939" }}
+        style={{ color: "white", background: "#393939a5" }}
       >
         categories
       </Button>
@@ -43,7 +43,7 @@ export default function Categories() {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
-        style={{ background: "#1b1b1bf6" }}
+        style={{ background: "#1b1b1b89" }}
       >
         <MenuItem style={{ background: "#1b1b1b" }} onClick={handleClose}>
           <Link

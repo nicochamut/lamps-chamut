@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const ItemListStyled = styled.div`
   display: grid;
@@ -46,5 +47,22 @@ export const ItemListStyled = styled.div`
     .link-items {
       width: 25rem;
     }
+  }
+`;
+
+export const TitleCategory = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 5rem;
+  margin-top: 2rem;
+
+  div {
+    background: white;
+    height: 1px;
+    width: 35rem;
+    margin-top: 1rem;
   }
 `;

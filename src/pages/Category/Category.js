@@ -6,7 +6,7 @@ import { db } from "../../firestore/firestoreConfig";
 import { collection, query, getDocs, where } from "firebase/firestore";
 
 //style
-import styled from "styled-components";
+import { TitleCategory } from "../../style";
 
 // React
 import { useState, useEffect } from "react";
@@ -16,6 +16,10 @@ import { useParams } from "react-router";
 
 // ROUTER
 import { Link } from "react-router-dom";
+import { lineAnim } from "../../animations/Animations";
+
+//framer motion
+import { motion } from "framer-motion";
 
 const Category = () => {
   const [data, setData] = useState([]);
@@ -42,6 +46,11 @@ const Category = () => {
     <div>
       <TitleCategory>
         {category === "desklamps" ? <h1>Desk lamps</h1> : <h1>Floor lamps</h1>}
+        <motion.div
+          variants={lineAnim}
+          initial="hidden"
+          animate="show"
+        ></motion.div>
       </TitleCategory>
       <ItemListStyled>
         {data &&
@@ -54,14 +63,5 @@ const Category = () => {
     </div>
   );
 };
-
-const TitleCategory = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 5rem;
-  margin-top: 2rem;
-`;
 
 export default Category;

@@ -1,5 +1,6 @@
 //style
 import styled from "styled-components";
+import { TitleCategory } from "../../style";
 
 import { ItemListStyled } from "../../style";
 
@@ -19,6 +20,7 @@ import Spinner from "../Spinner/Spinner";
 
 //framer motion
 import { motion } from "framer-motion";
+import { lineAnim } from "../../animations/Animations";
 
 const ItemListContainer = () => {
   const [state, setState] = useState([]);
@@ -43,6 +45,7 @@ const ItemListContainer = () => {
     <motion.div>
       <TitleCategory>
         <h1> All our lamps</h1>
+        <motion.div variants={lineAnim}></motion.div>
       </TitleCategory>
       <ItemListStyled>
         {state.length > 0 ? (
@@ -64,14 +67,5 @@ const ItemListContainer = () => {
     </motion.div>
   );
 };
-
-const TitleCategory = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 5rem;
-  margin-top: 2rem;
-`;
 
 export default ItemListContainer;
