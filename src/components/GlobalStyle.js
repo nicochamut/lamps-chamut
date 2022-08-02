@@ -35,7 +35,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: white;
     background: #1b1b1b;
     
