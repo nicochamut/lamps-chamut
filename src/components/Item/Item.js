@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 const Item = ({ prop }) => {
   return (
     <StyledItem>
-      <h1>{prop.title}</h1>
       <div className="image">
         <img src={prop.imageUrl} alt={prop.title} />
       </div>
+      <h1>{prop.title}</h1>
       <p>{prop.features}</p>
       <p>{`available: ${prop.stock}`}</p>
       <h3>${prop.price}</h3>
@@ -38,12 +38,55 @@ const StyledItem = styled(motion.div)`
   background: #242424;
   box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
 
+  div {
+    background: #6b6b6b;
+    width: 22rem;
+    height: 27rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    width: 24rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.2rem;
+    color: white;
+    margin: 4px;
+    margin-top: 2rem;
+  }
+  p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #696454;
+  }
+  h3 {
+    color: #8a8a8a;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .image {
+    background: #080808ff;
+    box-shadow: 5px 5px 5px black;
+    width: 18rem;
+    height: 18rem;
+    img {
+      width: 18rem;
+      height: 20rem;
+      object-fit: cover;
+    }
+  }
+
   // button style
 
   .cta {
     border: none;
     background: none;
     text-align: center;
+    margin-bottom: 1.3rem;
   }
 
   .cta span {
@@ -77,52 +120,6 @@ const StyledItem = styled(motion.div)`
   .cta:hover .hover-underline-animation:after {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
-
-  div {
-    background: #6b6b6b;
-    width: 22rem;
-    height: 27rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  h1 {
-    width: 24rem;
-    font-family: "Montserrat", sans-serif;
-    font-size: 2.2rem;
-    color: white;
-    margin: 4px;
-  }
-  p {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 200;
-    font-size: 1rem;
-    padding: 1rem;
-    color: #696454;
-  }
-  h3 {
-    color: #8a8a8a;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 200;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  .image {
-    background: #080808ff;
-    box-shadow: 5px 5px 5px black;
-    width: 16rem;
-    height: 18rem;
-    img {
-      width: 14.5rem;
-      height: 17rem;
-      object-fit: cover;
-      transition: all 0.5s ease-out;
-      &:hover {
-        width: 16rem;
-        height: 18rem;
-      }
-    }
   }
 
   @media (max-width: 700px) {

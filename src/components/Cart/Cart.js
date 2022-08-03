@@ -16,7 +16,7 @@ const Cart = ({ props }) => {
       <CartStyled>
         <div className="each-card">
           <div>
-            <img src={props.imageUrl} />
+            <img src={props.imageUrl} alt={props.title} />
           </div>
           <div className="features">
             <h2>{props.title}</h2>

@@ -1,5 +1,5 @@
 //style
-import styled from "styled-components";
+
 import { TitleCategory } from "../../style";
 
 import { ItemListStyled } from "../../style";
