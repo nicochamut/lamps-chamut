@@ -18,6 +18,7 @@ const PurchaseButton = () => {
 const PurchaseStyled = styled.div`
   display: flex;
   margin-bottom: 2rem;
+  margin-bottom: 4.3rem;
   .link {
     list-style: none;
     text-decoration: none;

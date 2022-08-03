@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const ItemListStyled = styled.div`
+export const ItemListStyled = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(4, 22%);
   padding-left: 4rem;

@@ -82,10 +82,11 @@ const Card = styled.div`
   color: white;
   border: 1px solid black;
   padding: 1rem;
-  height: 42rem;
+  height: 38rem;
   padding: 2rem;
   background: #131313;
   box-shadow: 5px 5px 5px black;
+
   img {
     height: 30rem;
     margin-right: 2rem;
@@ -127,13 +128,13 @@ const Features = styled.div`
   }
 
   .feat {
-    height: 20rem;
+    height: 15rem;
     width: 40rem;
     display: flex;
     justify-content: center;
     padding: 3rem;
     text-align: center;
-    padding-bottom: 12rem;
+    padding-bottom: 8rem;
     margin: 2rem;
   }
 

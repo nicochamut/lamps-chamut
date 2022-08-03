@@ -54,7 +54,7 @@ const CountStyled = styled.div`
   border-radius: 5px;
   border: 1px solid #222222;
   margin-bottom: #212121;
-  margin-bottom: 2rem;
+  margin-bottom: 4.5rem;
 
   button {
     margin: 3px;

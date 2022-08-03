@@ -21,6 +21,7 @@ import Spinner from "../Spinner/Spinner";
 //framer motion
 import { motion } from "framer-motion";
 import { lineAnim } from "../../animations/Animations";
+import { fadeOut } from "../../animations/Animations";
 
 const ItemListContainer = () => {
   const [state, setState] = useState([]);
@@ -42,11 +43,12 @@ const ItemListContainer = () => {
   }, []);
 
   return (
-    <motion.div>
+    <motion.div variants={fadeOut}>
       <TitleCategory>
         <h1> All our lamps</h1>
         <motion.div variants={lineAnim}></motion.div>
       </TitleCategory>
+
       <ItemListStyled>
         {state.length > 0 ? (
           state.map((item) => (
