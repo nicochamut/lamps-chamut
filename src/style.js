@@ -6,19 +6,24 @@ export const ItemListStyled = styled.div`
   grid-template-columns: repeat(4, 22%);
   padding-left: 4rem;
   justify-content: center;
-  background: #9c865300;
+
   grid-auto-rows: 40rem;
   grid-gap: 2rem;
-  border-radius: 10px;
   width: 110rem;
-  border: 1px solid white;
   padding-top: 2rem;
-  padding-bottom: 2rem;
   align-items: center;
   margin-top: 3rem;
   color: black;
   margin-bottom: 3rem;
-  box-shadow: 5px 5px 5px black;
+  //
+  border: none;
+  padding: 0.7em 2em;
+  padding-bottom: 2rem;
+  font-size: 18px;
+  background-blend-mode: multiply;
+  border-radius: 9px;
+  background: linear-gradient(225deg, #181818, #2e2e2e);
+  box-shadow: -5px 5px 10px #191919, 5px -5px 10px #292929;
 
   .spinner {
     position: absolute;

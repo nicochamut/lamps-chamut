@@ -183,6 +183,16 @@ const FormEmailStyled = styled(motion.div)`
   border: 1px solid white;
   background: #292929ff;
   box-shadow: 5px 10px 10px black;
+
+  border: none;
+  padding: 0.7em 2em;
+  font-size: 18px;
+  font-family: inherit;
+  background-blend-mode: multiply;
+  color: rgb(235, 234, 234);
+  border-radius: 9px;
+  background: linear-gradient(225deg, #181818, #2e2e2e);
+  box-shadow: -5px 5px 10px #191919, 5px -5px 10px #292929;
   form {
     display: flex;
     align-items: center;
@@ -208,13 +218,39 @@ const FormEmailStyled = styled(motion.div)`
     input:focus {
       outline: none;
     }
+
     button {
-      width: 8rem;
-      height: 3rem;
-      margin-top: 2rem;
-      border-radius: 5px;
-      background: red;
-      color: white;
+      border: none;
+      padding: 0.7em 2em;
+      font-size: 18px;
+      font-family: inherit;
+      background-blend-mode: multiply;
+      color: rgb(235, 234, 234);
+      border-radius: 9px;
+      background: linear-gradient(225deg, #181818, #2e2e2e);
+      box-shadow: -5px 5px 10px #191919, 5px -5px 10px #292929;
+    }
+
+    button:hover {
+      background: #212121;
+      transition: background 1s ease;
+      box-shadow: -5px 5px 10px #191919, 5px -5px 10px #292929;
+    }
+
+    button:active {
+      transition: box-shadow 0.1s ease;
+      border-radius: 9px;
+      background: #212121;
+      box-shadow: inset -5px 5px 10px #191919, inset 5px -5px 10px #292929;
+    }
+
+    span {
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
+    }
+
+    button:hover span {
+      opacity: 0.7;
     }
     h3 {
       border-bottom: 1px solid grey;

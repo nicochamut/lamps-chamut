@@ -13,7 +13,10 @@ const Item = ({ prop }) => {
       <p>{prop.features}</p>
       <p>{`available: ${prop.stock}`}</p>
       <h3>${prop.price}</h3>
-      <button>see more</button>{" "}
+
+      <button className="cta">
+        <span class="hover-underline-animation"> see more </span>
+      </button>
     </StyledItem>
   );
 };
@@ -30,25 +33,52 @@ const StyledItem = styled(motion.div)`
   height: 35rem;
   border-radius: 5px;
   border: 1px solid black;
-
   font-size: 1.4rem;
 
-  button {
-    width: 8rem;
-    height: 1.6rem;
-    background: #36363600;
-    color: white;
+  background: #242424;
+  box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
+
+  // button style
+
+  .cta {
     border: none;
-
-    margin-bottom: 10px;
-
-    transition: all 0.3s ease-in;
-
-    &:hover {
-      background: #868465;
-      color: black;
-    }
+    background: none;
+    text-align: center;
   }
+
+  .cta span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 10px;
+    width: 10rem;
+    text-transform: uppercase;
+    padding: 0 1rem 7px 1rem;
+  }
+
+  .hover-underline-animation {
+    position: relative;
+    color: white;
+    padding-bottom: 20px;
+  }
+
+  .hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
   div {
     background: #6b6b6b;
     width: 22rem;
