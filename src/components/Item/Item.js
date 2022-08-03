@@ -9,14 +9,15 @@ const Item = ({ prop }) => {
       <div className="image">
         <img src={prop.imageUrl} alt={prop.title} />
       </div>
-      <h1>{prop.title}</h1>
-      <p>{prop.features}</p>
-      <p>{`available: ${prop.stock}`}</p>
-      <h3>${prop.price}</h3>
-
-      <button className="cta">
-        <span class="hover-underline-animation"> see more </span>
-      </button>
+      <div className="features">
+        <h1>{prop.title}</h1>
+        <p>{prop.features}</p>
+        <p>{`available: ${prop.stock}`}</p>
+        <h3>${prop.price}</h3>
+        <button className="cta">
+          <span class="hover-underline-animation"> see more </span>
+        </button>
+      </div>
     </StyledItem>
   );
 };
@@ -31,48 +32,43 @@ const StyledItem = styled(motion.div)`
   padding: 10px;
   width: 18rem;
   height: 35rem;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid black;
   font-size: 1.4rem;
 
   background: #242424;
   box-shadow: 15px 15px 30px rgb(25, 25, 25), -15px -15px 30px rgb(60, 60, 60);
 
-  div {
-    background: #6b6b6b;
-    width: 22rem;
-    height: 27rem;
+  .features {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  h1 {
-    width: 24rem;
-    font-family: "Montserrat", sans-serif;
-    font-size: 2.2rem;
-    color: white;
-    margin: 4px;
-    margin-top: 2rem;
-  }
-  p {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 200;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: #696454;
-  }
-  h3 {
-    color: #8a8a8a;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 200;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    flex-direction: column;
+
+    h1 {
+      width: 10rem;
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.2rem;
+      color: white;
+      border-bottom: 1px solid white;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 200;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #696454;
+    }
+    h3 {
+      color: #8a8a8a;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 200;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
   }
   .image {
-    background: #080808ff;
-    box-shadow: 5px 5px 5px black;
-    width: 18rem;
-    height: 18rem;
     img {
       width: 18rem;
       height: 20rem;

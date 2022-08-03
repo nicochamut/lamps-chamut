@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 // styled components
 import styled from "styled-components";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 // context
 import { useContext } from "react";
@@ -140,7 +141,11 @@ const Checkout = () => {
             </div>
           </div>
 
-          <button type="submit">buy now</button>
+          <button type="submit">
+            {" "}
+            <ShoppingCartIcon />
+            buy now
+          </button>
         </form>
       </FormEmailStyled>
       <div style={{ position: "absolute", bottom: "20%" }}>
@@ -220,6 +225,9 @@ const FormEmailStyled = styled(motion.div)`
     }
 
     button {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
       border: none;
       padding: 0.7em 2em;
       font-size: 18px;
@@ -229,6 +237,9 @@ const FormEmailStyled = styled(motion.div)`
       border-radius: 9px;
       background: linear-gradient(225deg, #181818, #2e2e2e);
       box-shadow: -5px 5px 10px #191919, 5px -5px 10px #292929;
+      svg {
+        margin-right: 5px;
+      }
     }
 
     button:hover {

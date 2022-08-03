@@ -34,7 +34,7 @@ export const ItemListStyled = styled(motion.div)`
     list-style: none;
     text-decoration: none;
     box-shadow: 4px 2px 10px #000000;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 18rem;
     overflow: hidden;
   }

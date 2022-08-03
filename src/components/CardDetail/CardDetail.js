@@ -84,8 +84,9 @@ const Card = styled.div`
   padding: 1rem;
   height: 38rem;
   padding: 2rem;
-  background: #131313;
-  box-shadow: 5px 5px 5px black;
+  background: linear-gradient(to left, #0b0b0b, #303030);
+  box-shadow: 10px 10px 15px #000000;
+  border-radius: 10px;
 
   img {
     height: 30rem;

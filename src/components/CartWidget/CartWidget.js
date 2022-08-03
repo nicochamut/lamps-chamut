@@ -85,7 +85,10 @@ const CartStyled = styled.div`
     text-decoration: none;
     list-style: none;
     border: 1px solid black;
-    height: 2.2rem;
+    height: 1.7rem;
+    background: #454545;
+    color: white;
+    box-shadow: 2px 2px 5px #191919da;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     position: absolute;
